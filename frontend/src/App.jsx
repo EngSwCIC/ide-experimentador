@@ -1,9 +1,8 @@
+import { Routes } from "./routes";
+
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world</h1>
-    </>
-  );
+  // providers may go around routes
+  return <Routes />;
 }
 
 export default App;
