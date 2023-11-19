@@ -12,9 +12,9 @@ Contexto:
 
 Cenário: Visualizar todos os simuladores(Happy Path)
     Dado que acessei a rota específica para visualizar todos os simuladores
-    e foi renderizada uma página
-    então devo ver os botões (representando simuladores) para acessar os experimentos de cada simulador.
+    E foi renderizada uma página
+    Então devo ver os botões (representando simuladores) para acessar os experimentos de cada simulador.
 Cenário: Visualizar todos os simuladores(Sad Path)
     Dado que acessei a rota específica para configurar ambiente
-    e nenhuma página é renderizada
-    então deve ser exibida uma mensagem de erro.
+    E nenhuma página é renderizada
+    Então deve ser exibida uma mensagem de erro.
