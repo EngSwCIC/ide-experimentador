@@ -7,16 +7,16 @@ Contexto:
     Dado que eu executei um teste no simulador,
     Então eu deveria ver as skills do robô no teste executado.
 
-Cenário: Sem plano local
-    Dado que um robô não possui um plano local,
-    Então o campo "skills" deve ser preenchido com as skills disponíveis ao robô.
-
 Cenário: Sucesso e Falha
     Dado que o robô possui diferentes skills em seu plano local,
     E o avanço do plano depende do sucesso de cada skill,
-    Então deve ser informado em qual skill do robô houve sucesso ou falha. 
-    ou
-    Então deve ser informado se houve sucesso ou falha na habilidade do robô.
+    Então deve ser informado em qual skill do robô houve falha ou,
+    Então deve ser informado se houve sucesso na simulação.
+
+Cenário: Observação do tempo na execução do teste
+    Dado que o usuário analisa os logs de execução do teste,
+    E observa o campo de registro de tempo em cada entrada de log,
+    Então o usuário observa, além do sucesso e falha, em que momento uma skill é alterada.
 
 Cenário: Navigation
     Dado que há um plano local com a skill "navigation",
@@ -63,11 +63,6 @@ Cenário: Send Message
     Então o campo "skill" no "local_plan" deve ser preenchido com "send_message",
     E o campo "parameter" deve conter "topic" com a pessoa destinatária da mensagem,
     E a pessoa deve receber a mensagem.
-
-Cenário: Sucesso na execução do teste
-    Dado que o usuário acessa a interface de visualização de dados de skills,
-    E escolhe um experimento,
-    Então os dados de skills do robô no teste executado são exibidos de maneira clara e organizada.
 	
 Cenário: Visualizar skills sem executar simulação
     Dado que o usuário tenta acessar a visualização de skills sem executar a simulação,
@@ -78,18 +73,15 @@ Cenário: Robô sem skills
     E este robô não possui skills atribuídas,
     Então a interface deve indicar que não há skills disponíveis para o robô.
 
-Cenário Campos das skills não preenchidos corretamente
+Cenário: Campos das skills não preenchidos corretamente
     Dado que um robô possui um plano local associado,
     E o plano local contém informações incorretas ou campos de skills mal preenchidos,
     Quando o usuário executa um teste com esse robô,
     Então a interface deve detectar os erros nos campos de skills,
     E impedir/interromper a execução do teste.
 
-
 - Exemplo de Erros nos Campos de Skills:
 . A skill de navegação possui waypoints ausentes ou inválidos.
 . O parâmetro "topic" para a skill "approach_person" não está definido.
 . A ação para a skill "operate_drawer" não especifica se é para abrir ou fechar a gaveta.
 . Falta informação essencial em uma ou mais skills do plano local.
-
-
