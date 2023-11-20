@@ -3,6 +3,7 @@
 ## Group members
 
 - Arthur Souza Cordeiro (200014978)
+- Ana Luísa Padilha Alves (202006546)
 - Bruno Vargas de Souza (202006564)
 - Harisson Freitas Magalhães (202006466)
 
@@ -26,13 +27,19 @@ Dado que sou um usuario, quero poder configurar o ambiente para atrelar a um exp
 ### Visualizar experimentos relacionados à um simulador
 - Responsible: Bruno Vargas de Souza
 - Story Points: 5
-- Description: Um usuário deve ser capaz de visualizar 
+- Description: Um usuário deve ser capaz de visualizar todos os experimentos relacionados à um Simulador. 
 - Business Rules: ...
 
 ### Desativar e Ativar um Simulador
 - Responsible: Harisson Freitas Magalhães
 - Story Points: 5
 - Description: Um usuário deve ser capaz de vizualizar a desativação ou ativação de um Simulador ao apertar o botão.
+- Business Rules: ...
+
+### Criar um simulador
+- Responsible: Ana luísa Padilha Alves
+- Story Points: 5
+- Description: Um usuário deve ser capaz de criar um Simulador ao adicionar uma URL válida.
 - Business Rules: ...
 ## Branch Policy
 
