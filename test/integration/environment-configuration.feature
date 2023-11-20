@@ -30,3 +30,27 @@ Cenário: Visualizar um Experimento de um Simulador(Sad Path)
     Quando eu apertar no botão "Ver Experimentos"
     E não houver experimentos ligados
     Então devo ver "Nenhum Experimento" na tela.
+
+Cenário: Desativar e Ativar Simulador (Happy Path)
+    Dado que estou na página de configuração do Simulador 1,
+    E eu estou vendo o Simulador 1 ativo,
+    Quando eu apertar o botão "Desativar Simulador",
+    Então devo receber uma confirmação de que o simulador foi desativado com sucesso.
+
+    Dado que estou na página de configuração do Simulador 1,
+    E eu estou vendo o Simulador 1 inativo,
+    Quando eu apertar o botão "Ativar Simulador",
+    Então devo receber uma confirmação de que o simulador foi ativado com sucesso.
+
+Cenário: Desativar e Ativar Simulador (Sad Path)
+    Dado que estou na página de configuração do Simulador 1,
+    E eu estou vendo o Simulador 1 ativo,
+    Quando eu apertar o botão "Desativar Simulador",
+    E não houver simuladores ligados
+    Então devo ver "Nenhum Simulador selecionando" na tela.
+
+    Dado que estou na página de configuração do Simulador 1,
+    E eu estou vendo o Simulador 1 inativo,
+    Quando eu apertar o botão "Ativar Simulador",
+    E não houver simuladores ligados
+    Então devo ver "Nenhum Simulador selecionando" na tela.
