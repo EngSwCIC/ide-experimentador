@@ -7,7 +7,7 @@ Dado que estou logado como usuário do ide-experimentador
 #Cenários Felizes 
 Cenario: Visitando a pagina de experimentos
 Dado que existem n experimentos
-Quando eu acessar a pagina de experimentos
+Quando eu acessar a página de experimentos
 Então eu devo ver os todos experimentos existentes 
 E eu devo ver o botão "Filtro"
 
@@ -24,7 +24,7 @@ Cenario: visualização de ausência de experimentos
 Dado que não existem experimentos
 Quando eu acessar a pagina de experimentos 
 E nenhum filtro estiver selecionado
-Então eu devo nenhum experimento
+Então eu devo ver nenhum experimento
 
 
 #Cenários Tristes
