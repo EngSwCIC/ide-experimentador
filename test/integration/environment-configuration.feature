@@ -54,3 +54,35 @@ Cenário: Desativar e Ativar Simulador (Sad Path)
     Quando eu apertar o botão "Ativar Simulador",
     E não houver simuladores ligados
     Então devo ver "Nenhum Simulador selecionando" na tela.
+
+Cenário: Criar um simulador (Happy path)
+    Dado que o usuário está logado e  na página de configurações 
+    E deseja adicionar um novo simulador
+    Quando clicar no botão "Adicionar novo simulador"
+    E adicionar uma URL válida
+    Então é gerado um novo simulador
+    E o usuário recebe uma confirmação de que o simulador foi criado com sucesso.
+
+Cenário:Criar um simulador (Sad path)
+    Dado que o usuario está logado e na página de configurações 
+    E deseja adicionar um novo simulador
+    Quando clicar no botão "Adicionar novo simulador"
+    E adicionar uma URL inválida
+    Então a criação do simulador falha 
+    E o usuário recebe uma mensagem de erro informando que o simulador não foi criado.
+
+Cenário: Exluir um simulador (Happy path)
+    Dado que o usuario está na página de configurações 
+    E deseja excluir simulador
+    Quando selecionar o simulador 
+    E clicar no botão "Excluir simulador"
+    Então o simulador é removido 
+    E o usuário recebe uma mensagem de confirmação da exclusão
+
+Cenário: Excluir um simulador (Sad path)
+    Dado que o usuario está na página de configurações 
+    E deseja excuir simulador
+    Quando selecionar o simulador 
+    E clicar no botão "Excluir simulador"
+    E o simulador não é removido 
+    Então o usuário recebe uma mensagem de erro informando que o simulador não foi excluído.
