@@ -11,7 +11,7 @@ Cenário: Teste não executado
 
 Cenário: Teste concluído
     Dado que o teste foi executado com sucesso
-    Então eu deveria ver as informações sobre velocidade que foram coletadas durante a execução do teste
+    Então eu deveria ver em um gráfico as informações sobre velocidade que foram coletadas durante a execução do teste
 
 Cenário: Falha na coleta de dados
     Dado que o teste foi executado
