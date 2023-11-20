@@ -36,10 +36,10 @@ Dado que sou um usuario, quero poder configurar o ambiente para atrelar a um exp
 - Description: Um usuário deve ser capaz de vizualizar a desativação ou ativação de um Simulador ao apertar o botão.
 - Business Rules: ...
 
-### Criar um simulador
+### Criar ou Excluir um simulador
 - Responsible: Ana luísa Padilha Alves
 - Story Points: 5
-- Description: Um usuário deve ser capaz de criar um Simulador ao adicionar uma URL válida.
+- Description: Um usuário deve ser capaz de criar ou excluir um Simulador ao adicionar uma URL válida.
 - Business Rules: ...
 ## Branch Policy
 
