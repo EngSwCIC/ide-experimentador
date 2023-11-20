@@ -4,6 +4,7 @@
 
 - Arthur Souza Cordeiro (200014978)
 - Bruno Vargas de Souza (202006564)
+- Harisson Freitas Magalhães (202006466)
 
 ## Project Scope
 
@@ -28,6 +29,11 @@ Dado que sou um usuario, quero poder configurar o ambiente para atrelar a um exp
 - Description: Um usuário deve ser capaz de visualizar 
 - Business Rules: ...
 
+### Desativar e Ativar um Simulador
+- Responsible: Harisson Freitas Magalhães
+- Story Points: 5
+- Description: Um usuário deve ser capaz de vizualizar a desativação ou ativação de um Simulador ao apertar o botão.
+- Business Rules: ...
 ## Branch Policy
 
 - sprint-x: Esta branch deve ter o código pronto e revisado para a entrega do sprint.
