@@ -15,12 +15,11 @@ Dado que sou um usuario, quero poder configurar o ambiente para atrelar a um exp
 
 ## Features and Business Rules
 
-### feature
-
-- Responsible: [Responsible name]
-- Story Points: [ 1,  2,  3,  5,  8,  13]
-- Description: [Feature description]
-- Business Rules: [Business rules]
+### Visualizar todos os simuladores
+- Responsible: Arthur Souza Cordeiro
+- Story Points: 3
+- Description: Um usuário externo acessando a rota específica deve ser capaz de visualizar todos os simuladores.
+- Business Rules: O usuário não precisa estar necessariamente autenticado na plataforma.
 
 ## Branch Policy
 
