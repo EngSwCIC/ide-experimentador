@@ -2,10 +2,10 @@
 
 ## Grupo 6
 
-Bernardo Ramalho Rabello (211055218)
-Debora Venturelli Machado (190086238)
-Emanuel de Oliveira Barbosa (211010403)
-Pedro Arthur de Moura Neves (211055352)
+- Bernardo Ramalho Rabello (211055218)
+- Debora Venturelli Machado (190086238)
+- Emanuel de Oliveira Barbosa (211010403)
+- Pedro Arthur de Moura Neves (211055352)
 
 
 ## Projeto
