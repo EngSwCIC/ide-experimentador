@@ -14,9 +14,13 @@ Cenário: Sem plano local
 Cenário: Sucesso e Falha
     Dado que o robô possui diferentes skills em seu plano local,
     E o avanço do plano depende do sucesso de cada skill,
-    Então deve ser informado em qual skill do robô houve sucesso ou falha. 
-    ou
-    Então deve ser informado se houve sucesso ou falha na habilidade do robô.
+    Então deve ser informado em qual skill do robô houve falha ou,
+    Então deve ser informado se houve sucesso na simulação.
+
+Cenário: Observação do tempo na execução do teste
+    Dado que o usuário analisa os logs de execução do teste,
+    E observa o campo de registro de tempo em cada entrada de log,
+    Então o usuário observa, além do sucesso e falha, em que momento uma skill é alterada.
 
 Cenário: Navigation
     Dado que há um plano local com a skill "navigation",
