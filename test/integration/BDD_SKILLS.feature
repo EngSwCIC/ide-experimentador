@@ -39,11 +39,22 @@ Cenário: Authenticate Person
     E o campo "parameter" deve conter "topic" com a pessoa a ser autenticada,
     E a pessoa deve ser autenticada.
 
+Cenário: Approach Robot
+    Dado que o robô deve se aproximar de um objeto,
+    Então o campo "skill" no "local_plan" deve ser preenchido com "approach_robot",
+    E o campo "parameter" deve conter "topic" com o objeto de aproximação,
+    E o robô deve se aproximar do objeto.
+
 Cenário: Operate Drawer
     Dado que o robô usou "authenticate_person",
     E deve realizar uma ação sobre a pessoa,
     Então o campo "skill" no "local_plan" deve ser preenchido com "operate_drawer",
-    E o campo "parameter" deve conter "action" com "open" ou "close".
+    E o campo "parameter" deve conter "action" com "open".
+
+Cenário: Wait Message
+    Dado que o robô usou "operate_drawer",
+    Então o status da mensagem deve, em caso de sucesso, ser recebida,
+    E Operate Drawer deve conter "action" com "close".
 
 Cenário: Send Message
     Dado que há plano local,
