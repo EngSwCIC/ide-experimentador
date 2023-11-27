@@ -1,0 +1,12 @@
+<h1>Listagem de Simuladores</h1>
+
+<% if @simulators.any? %>
+  <ul>
+    <% @simulators.each do |simulator| %>
+      <li><%= simulator.name %></li>
+      <li><%= simulator.disabled %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhum simulador encontrado.</p>
+<% end %>
