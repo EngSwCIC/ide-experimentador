@@ -5,7 +5,7 @@ Funcionalidade: Dado que sou um usuario, quero poder configurar o ambiente para 
 
 Contexto:
   
-    Dado que sou um usuário externo
+    Dado que sou um usuário externo e estou autenticado
     quero acessar uma rota que permite a interação com os dados e funcionalidades do aplicativo
     por meio de solicitações HTTP, como GET, POST, PUT, DELETE, entre outras. Tudo isso sem estar
     necessariamente logado.
@@ -14,10 +14,6 @@ Cenário: Visualizar todos os simuladores(Happy Path)
     Dado que acessei a rota específica para visualizar todos os simuladores
     E foi renderizada uma página
     Então devo ver os botões (representando simuladores) para acessar os experimentos de cada simulador.
-Cenário: Visualizar todos os simuladores(Sad Path)
-    Dado que acessei a rota específica para configurar ambiente
-    E nenhuma página é renderizada
-    Então deve ser exibida uma mensagem de erro.
 
 Cenário: Visualizar um Experimento de um Simulador(Happy Path)
     Dado que estou na página de configuração de ambiente
