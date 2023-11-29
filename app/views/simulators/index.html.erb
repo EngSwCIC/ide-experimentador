@@ -1,10 +1,16 @@
-<h1>Listagem de Simuladores</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<h1>Configuração do Ambiente<h1>
+<br>
+<h2>Simuladores:</h2>
 
 <% if @simulators.any? %>
-  <ul>
+  <ul style="list-style: none;">
     <% @simulators.each do |simulator| %>
-      <li><%= simulator.name %></li>
-      <li><%= simulator.disabled %></li>
+      <li><div class="btn-group">
+      <button type="button" class="btn active"><%= simulator.name %></button>
+      <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true">Disabled</button>
+      </div></li>
     <% end %>
   </ul>
 <% else %>
