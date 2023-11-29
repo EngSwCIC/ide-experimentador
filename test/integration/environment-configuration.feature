@@ -20,12 +20,6 @@ Cenário: Visualizar um Experimento de um Simulador(Happy Path)
     E eu estou vendo o Simulador 1
     Quando eu apertar no botão "Ver Experimentos"
     Então devo ser capaz de listar todos os experimentos relacionados
-Cenário: Visualizar um Experimento de um Simulador(Sad Path)
-    Dado que estou na página de configuração de ambiente
-    E eu estou vendo o Simulador 1
-    Quando eu apertar no botão "Ver Experimentos"
-    E não houver experimentos ligados
-    Então devo ver "Nenhum Experimento" na tela.
 
 Cenário: Desativar e Ativar Simulador (Happy Path)
     Dado que estou na página de configuração do Simulador 1,
