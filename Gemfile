@@ -25,7 +25,8 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
+# Populate your database with fake data [https://github.com/faker-ruby/faker]
+gem 'faker'
 # Use rspec for tests 
 group :development, :test do
   gem 'rspec-rails'
