@@ -1,15 +1,60 @@
 require 'json'
-filePath = 'analyze_skills/50_abcbbp.log'
-
-=begin logLine = "0.20, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.634952869577942, 'battery_discharge_rate': 0.00026000000000000003, 'id': 2, 'local_plan': [['navigation', ['IC Room 2', [[-19.0, 18.0, -1.57], [-19.0, 16.0], [-37.0, 16.0], [-37.0, 21.5], [-38.0, 21.5, 0.0]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-38.0, 21.5, 0.0], [-37.0, 21.5], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 6', 'name': 'r2', 'position': [-19.0, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None"
-=end
+filePath = 'analyze_skills\logs\9_aaaccb.log'
 
 File.open(filePath, 'r') do |file|
-    started = false                 # boolean pra controle de quando começa as skills
-    navigationList = []
-    nav = true                      # boolean para controle de destino da navegation
+    started = false                 # boolean pra controle de quando começa o experimento
+    finished = false                # boolean pra controle de quando termina o experimento
+
+    isNav = true                    # boolean para controle de destino da navigation
+    navigationList = []             # guarda info das linhas de navigation
+
+    def navigationLine(navigation, navigationList)      # referente à linha de navigation
+        time = navigation[1].to_f
+        print time
+        puts " Navigation #{navigationList[0]}"
+    end
+        
+    def messageLine(linhaLista)                         # referente à linha de mensagem
+        time = linhaLista[0]
+        case
+        when linhaLista[5] == '(status=sending-request)'        # request de mensagem
+            print time
+            puts " Sending message to #{linhaLista[2]}"
+        
+        when linhaLista[5] == '(status=waiting)'                # espera de mensagem
+            print time
+            puts " Waiting the message get to #{linhaLista[2]}"
+
+        when linhaLista[5] == '(status=message-received)'       # mensagem recebida
+            print time
+            puts " Message sent to #{linhaLista[2]}"
+        
+        else
+            puts '?'
+        end
+    end
+
+    def successLine(linhaLista)
+        time = linhaLista[0]
+        puts "Experiment completed successfully with #{time} seconds!"
+    end
+
+    def failureLine(linhaLista)
+        time = linhaLista[0]
+        case linhaLista[3]
+        when 'NO-SKILL'
+            print time
+            puts " Experiment failed with #{linhaLista[3]}: #{linhaLista[4]}."
+
+        when 'SKILL-FAILURE'
+            print time
+            puts " Skill #{linhaLista[4]} failed."
+        end
+    end
 
     file.each_line do |line|
+        linhaLista = line.split(',').map(&:strip)
+
         if line.include?('ROBOTS_CONFIG')
             # posição inicial e final do hash ROBOTS_CONFIG
             startIndex = line.index("ROBOTS_CONFIG={")
@@ -20,48 +65,80 @@ File.open(filePath, 'r') do |file|
             robotsConfigStr.gsub!("'", "\"")
 
             # remove "ROBOTS_CONFIG=" e analisa-se como JSON
-            robotsConfigJson = robotsConfigStr.sub("ROBOTS_CONFIG=", "")
-            robotsConfigHash = JSON.parse(robotsConfigJson)
+            begin
+                robotsConfigJson = robotsConfigStr.sub("ROBOTS_CONFIG=", "")
+                robotsConfigHash = JSON.parse(robotsConfigJson)
+            rescue
+                puts 'TIMEOUT'
+                break
+            end
 
             localPlan = robotsConfigHash['local_plan']
 
             c = 0
             localPlan.each do |action|
-                    c += 1
-                    if action[0] == 'navigation'
-                        if action[2] == 'navto_room'
-                            navigationList.append('to room')
-                        end
-
-                        if action[2] == 'navto_lab'
-                            navigationList.append('to lab')
-                        end
+                c += 1
+                if action[0] == 'navigation'
+                    case
+                    when action[2] == 'navto_room'
+                        navigationList.append('to room')
+                        
+                    when action[2] == 'navto_lab'
+                        navigationList.append('to lab')
                     end
                 end
-        else 
-            
-            start = line.match(/(\d+\.\d+), \[DEBUG\], logger, Simulation open, (\w+), (\w+)/) || line.match(/(\d+\.\d+), \[INFO\], (\w+), {'y': (-?\d+\.\d+), 'x': (-?\d+\.\d+), 'yaw': (-?\d+\.\d+)}, (\w+), (\w+)/)
-            navigation = line.match(/(\d+\.\d+), \[INFO\], (\w+), {'battery-level': '(\d+\.\d+)'}, (\w+), (\w+)/) || line.match(/(\d+\.\d+), \[INFO\], (\w+), {'y': (-?\d+\.\d+), 'x': (-?\d+\.\d+), 'yaw': (-?\d+\.\d+)}, (\w+), (\w+)/)
+            end
 
-            if navigation && started == true
-                if !nav
+        else 
+            # montando padrões de linha
+            start = line.match(/(\d+\.\d+), \[DEBUG\], logger, Simulation open, (\w+), (\w+)/) || line.match(/(\d+\.\d+), \[INFO\], (\w+), {'y': (-?\d+\.\d+), 'x': (-?\d+\.\d+), 'yaw': (-?\d+\.\d+)}, (\w+), (\w+)/)
+            # === #
+            navigation = line.match(/(\d+\.\d+), \[INFO\], (\w+), {'battery-level': '(\d+\.\d+)'}, (\w+), (\w+)/) || line.match(/(\d+\.\d+), \[INFO\], (\w+), {'y': (-?\d+\.\d+), 'x': (-?\d+\.\d+), 'yaw': (-?\d+\.\d+)}, (\w+), (\w+)/)
+            # === #
+            message = line.match(/(\d+\.\d+), \[info\], (\w+)/)
+            # === #
+            success = line.match(/(\d+\.\d+), \[WARN\], (\w+), SUCCESS, (\w+)/)
+            # === #
+            timeout = line.match(/\[WARN\], logger, TIMEOUT, (\w+)/)
+            # === #
+            failure =  line.match(/(\d+\.\d+), \[WARN\], (\w+), SKILL-FAILURE, (\w+)/) || line.match(/(\d+\.\d+), \[WARN\], (\w+), NO-SKILL, (\w+)/)
+
+
+            case
+            when navigation && started == true          # caso a linha seja de navigation
+                if !isNav
                     navigationList.delete_at(0)
                 end
+                isNav = true
+                navigationLine(navigation, navigationList)
 
-                nav = true
-                time = navigation[1].to_f
-                print time
-                puts " Navigation #{navigationList[0]}"
-            end
+            when !navigation && started == true         # caso a linha não seja de navigation
+                isNav = false
+                if message                              # se não for navigation, pode ser de mensagem
+                    messageLine(linhaLista)
+                end
 
-            if !navigation && started == true
-                nav = false
-                p line
-            end
+                if success  
+                    successLine(linhaLista)
+                end
 
-            if start
+                if failure
+                    failureLine(linhaLista)
+                end
+
+                if timeout
+                    puts "TIMEOUT"
+                end
+
+            when start
                 started = true
+                puts 'Experiment started!'
+            
+            else                                        # se não for nada disso daí é ota coisa.
+                puts '??'
             end
+
+            
         end
     end 
 end
