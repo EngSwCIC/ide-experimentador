@@ -6,6 +6,7 @@ class SimulatorsController < ApplicationController
     @simulator = Simulator.find(params[:id])
     if @simulator.disabled?
       @simulator.update!(disabled: false)
+      redirect_to simulators_path
     else
       @simulator.update!(disabled: true)
       redirect_to simulators_path
