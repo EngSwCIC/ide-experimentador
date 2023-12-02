@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'simulators/index'
   get 'hello/world'
+  put 'simulators/:id/toggle', to: 'simulators#toggle', as: 'toggle'
   resources :simulators
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
