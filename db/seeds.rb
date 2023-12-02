@@ -1,7 +1,7 @@
 require 'faker'
 
 # Exemplo: criando 10 simuladores fictícios
-10.times do
+4.times do
   Simulator.create(
     name: "Simulator1",
     disabled: false
