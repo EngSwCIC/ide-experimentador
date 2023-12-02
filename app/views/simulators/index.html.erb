@@ -15,9 +15,9 @@
     <div class="card-body">
       <h5 class="card-title"><%= simulator.name %></h5>
       <% if simulator.disabled %>
-        <p class="card-text"><%= link_to "Desativado", toggle_path(simulator), method: :put %></p>
+        <p class="button"><%= link_to "Desativado", toggle_path(simulator), method: :put %></p>
       <% else %>
-        <p class="card-text"><%= link_to "Ativado", toggle_path(simulator), method: :put %></p>
+        <p class="button"><%= link_to "Ativado", toggle_path(simulator), method: :put %></p>
       <% end %>
     </div>
   </div>

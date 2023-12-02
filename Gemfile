@@ -31,6 +31,8 @@ gem 'faker'
 group :development, :test do
   gem 'rspec-rails'
 end
+# Gem for testing
+gem 'rails-controller-testing'
 
 
 # Use Redis adapter to run Action Cable in production
