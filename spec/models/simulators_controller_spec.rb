@@ -9,14 +9,14 @@ RSpec.describe SimulatorsController, type: :controller do
     it 'activates the simulator' do
       post :toggle, params: { id: simulator.id, state: 'activate' }
       simulator.reload
-      expect(simulator.disabled).to be(true)
+      expect(simulator.disabled).to be(false)
       expect(response).to redirect_to(simulators_path)
     end
 
     it 'deactivates the simulator' do
       post :toggle, params: { id: simulator.id, state: 'deactivate' }
       simulator.reload
-      expect(simulator.disabled).to be(false)
+      expect(simulator.disabled).to be(true)
       expect(response).to redirect_to(simulators_path)
     end
   end

@@ -6,9 +6,9 @@ class SimulatorsController < ApplicationController
 
   def toggle
     if params[:state] == 'activate'
-      @simulator.update(disabled: true)
-    elsif params[:state] == 'deactivate'
       @simulator.update(disabled: false)
+    elsif params[:state] == 'deactivate'
+      @simulator.update(disabled: true)
     end
 
     redirect_to simulators_path
