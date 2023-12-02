@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_26_223117) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_023601) do
   create_table "experiments", force: :cascade do |t|
     t.string "name"
     t.boolean "disabled"
@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_26_223117) do
   end
 
   create_table "simulator_experiments", force: :cascade do |t|
-    t.integer "simulator_id"
-    t.integer "experiment_id"
+    t.integer "simulator_id", null: false
+    t.integer "experiment_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["experiment_id"], name: "index_simulator_experiments_on_experiment_id"
@@ -34,4 +34,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_26_223117) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "simulator_experiments", "experiments"
+  add_foreign_key "simulator_experiments", "simulators"
 end

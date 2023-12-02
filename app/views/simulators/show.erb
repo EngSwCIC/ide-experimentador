@@ -1,0 +1,13 @@
+<h1> UHU</h1>
+
+<% if @experiments.any? %>
+    <ul>
+        <% @experiments.each do |experiment| %>
+        <li><div>
+        <%= experiment.name %>
+        </div></li>
+        <% end %>
+    </ul>
+<% else %>
+  <p>Nenhum experimento encontrado.</p>
+<% end %>
