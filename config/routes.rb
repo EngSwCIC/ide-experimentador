@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'simulators/index'
+  get 'simulators/:id', to:'simulators#show'
   get 'hello/world'
   resources :simulators do
     member do
