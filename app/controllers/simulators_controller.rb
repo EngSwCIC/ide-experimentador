@@ -6,6 +6,7 @@ class SimulatorsController < ApplicationController
   def show
     id = params[:id]
     teste = SimulatorExperiment.all
+    @simulator = Simulator.find(id=id)
     all_experiments = SimulatorExperiment.where(simulator_id:id)
     @experiments = all_experiments.map { |exp| Experiment.find(exp.experiment_id) }
   end

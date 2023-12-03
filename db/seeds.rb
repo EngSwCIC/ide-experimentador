@@ -1,24 +1,27 @@
 require 'faker'
 
 # Exemplo: criando 10 simuladores fictícios
+count = 0
 10.times do
-  Simulator.new(
-    name: "Simulator1",
+  count+=1
+  Simulator.create!(
+    name: "Simulator ##{count}",
     disabled: false
   )
 end
 
-
+count = 0
 10.times do
-  Experiment.new(
-    name: "Experiments1",
+  count += 1
+  Experiment.create!(
+    name: "Experiments ##{count}",
     disabled: false
   )
 end
 count = 0
 10.times do
   count+=1
-  SimulatorExperiment.new(
+  SimulatorExperiment.create!(
     simulator_id: 1,
     experiment_id: count
   )

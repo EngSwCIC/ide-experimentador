@@ -1,4 +1,4 @@
-<h1> UHU</h1>
+<h1> Experimentos do <%= @simulator.name %></h1>
 
 <% if @experiments.any? %>
     <ul>
@@ -11,3 +11,5 @@
 <% else %>
   <p>Nenhum experimento encontrado.</p>
 <% end %>
+
+<input type="button" value="Voltar" onClick="history.go(-1)"> 
