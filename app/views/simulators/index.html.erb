@@ -16,9 +16,9 @@
       <h5 class="card-title"><%= simulator.name %></h5>
       <a href="/simulators/<%= simulator.id %>">Ver Experimentos</a>
       <% if simulator.disabled %>
-        <p class="button"><%= link_to "Desativado", toggle_path(simulator), method: :put %></p>
+        <p class="button"><%= link_to "Desativado", toggle_simulator_path(simulator), method: :put %></p>
       <% else %>
-        <p class="button"><%= link_to "Ativado", toggle_path(simulator), method: :put %></p>
+        <p class="button"><%= link_to "Ativado", toggle_simulator_path(simulator), method: :put %></p>
       <% end %>
     </div>
   </div>

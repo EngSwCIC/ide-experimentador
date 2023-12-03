@@ -1,18 +1,20 @@
 class SimulatorsController < ApplicationController
-  before_action :set_simulator, only: [:toggle]
   def index
     @simulators = Simulator.all
   end
-
   def toggle
-    if params[:state] == 'activate'
-      @simulator.update(disabled: false)
-    elsif params[:state] == 'deactivate'
-      @simulator.update(disabled: true)
+    @simulator = Simulator.find(params[:id])
+    if @simulator.disabled?
+      @simulator.update!(disabled: false)
+      redirect_to simulators_path
+    else
+      @simulator.update!(disabled: true)
+      redirect_to simulators_path
     end
-
-    redirect_to simulators_path
   end
+
+    #redirect_to simulators_path
+  
 
   def show
     id = params[:id]
@@ -23,7 +25,7 @@ class SimulatorsController < ApplicationController
   end
 
   private
-  def set_simulator
-    @simulator = Simulator.find(params[:id])
+  def simulator_params
+    params.require(:simulator).permit(:name, :disabled)
   end
 end

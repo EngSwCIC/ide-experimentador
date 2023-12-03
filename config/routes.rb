@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'hello/world'
   resources :simulators do
     member do
-      post 'toggle'
+      get 'toggle', to: 'simulators#toggle'
     end
   end
   
