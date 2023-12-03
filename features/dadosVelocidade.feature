@@ -9,9 +9,13 @@ Cenário: Teste não executado
     Dado que o teste nunca foi executado
     Então não deve ser possível visualizar os dados
 
-Cenário: Teste concluído
+Cenário: Teste concluído com sucesso
     Dado que o teste foi executado com sucesso
     Então eu deveria ver em um gráfico as informações sobre velocidade que foram coletadas durante a execução do teste
+
+Cenário: Teste concluído com falha
+    Dado que o teste foi executado com sucesso
+    Então eu deveria ter a visualização da falha
 
 Cenário: Falha na coleta de dados
     Dado que o teste foi executado
