@@ -3,9 +3,10 @@ Funcionalidade: Visualizar dados de skills do teste executado
     Para compreender as skills demonstradas durante um teste,
     Eu quero visualizar os dados de skills associados ao robô.
 
-Contexto:
+Cenário: Habilidades do painel de visualização
     Dado que eu executei um teste no simulador,
-    Então eu deveria ver as skills do robô no teste executado.
+    Quando visito a página do painel de visualização de competências,
+    Então devo ver as competências do robô na execução do teste.
 
 Cenário: Sucesso
     Dado que o robô possui diferentes skills em seu plano local,

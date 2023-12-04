@@ -3,8 +3,9 @@ Feature: View skills data from the test run
     To understand the skills demonstrated during a test,
     I want to visualize the skills data associated with the robot.
 
-Context:
+Scenario: Visualization Panel Skills
     Given that I have run a test in the simulator,
+    When I visit the skills visualization panel page,
     Then I should see the robot's skills in the test run.
 
 Scenario: Success
