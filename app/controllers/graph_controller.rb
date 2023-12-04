@@ -1,10 +1,6 @@
 require 'json'
 
 class GraphController < ApplicationController
-    def skills
-        
-    end
-
     def jsonGet
         file_path = Rails.root.join('analyze_skills', 'data.json')
         if File.exist?(file_path)

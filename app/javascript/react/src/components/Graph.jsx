@@ -1,5 +1,27 @@
 import React, {useEffect, useState} from 'react'
-import styles from './Graph.module.css'                                                   
+import styles from './Graph.module.css'
+
+const YourComponent = ({ req }) => {
+  try {
+    reqArray = JSON.parse(req);
+  } catch (error) {
+    console.error('Erro ao fazer parse da string JSON:', error);
+    reqArray = [];
+  }
+
+
+  return (
+    <div>
+      {reqArray.map((item, index) => (
+        <div key={index}>
+          <p>Time: {item.time}</p>
+          <p>Message: {item.message}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Graph = (props) => {                                   
   
   let [req, setReq] = useState("")
@@ -13,9 +35,11 @@ const Graph = (props) => {
 
   return (
     <div>
-      <h1 className={styles.req}>{req}</h1>
+      <YourComponent req={req} className={styles.req}></YourComponent>
+
     </div>
   )                   
 }                                                       
+
 
 export default Graph
