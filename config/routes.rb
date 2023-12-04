@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'hello/world'
   get 'hello/worldGet', to: "hello#index"
+  
+
   get 'velocity/graph'
   get 'velocity/getData/:id', to: "velocity#getData"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
