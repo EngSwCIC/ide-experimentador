@@ -1,30 +1,7 @@
 class FilterController < ApplicationController
     
     def index
-        #filtros = filter_params
-        #listaResposta = []
-        #for e in Experiment.all do
-        #    listaAux = []
-        #    for c in Classification.all do
-        #        if Trial.find(id: c.trial_id).experiment_id == e.id
-        #            if Tag.find(id: c.tag_id) in filtros
-        #                listaAux << Tag.find(id: c.tag_id)
-        #            end
-        #        end
-        #    end
-        #    if listaAux.sort == filtros.sort
-        #        listaResposta << e
-        #    end
-        #end
-        #@experiments = listaResposta
-
-        parametros = "%#{params[:filter]}%"
-        if parametros == []
-            @experiments = Experiment.all
-        else
-            @experiments = Experiment.where(name:parametros)
-        end
-        
+        @experiments=Experiment.joins(trials.tag).where(tag.name == params[:filter])
     end
     
     def show 
