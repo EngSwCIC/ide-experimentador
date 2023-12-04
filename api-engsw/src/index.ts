@@ -129,39 +129,39 @@ const mockLogs = [
 const app = new Elysia()
   .get("/", () => "mock api")
   .get("/skills", () => availiableSkills)
-  .post("/run", ({body}: any) => {
-    const duration = Math.random() * 10
-    const lastIndex = Object.keys(tests).length
-    tests[lastIndex+1] = {...body.test, startTime: new Date(), duration}
-  }) 
-  .onError(({code, set}) => {
-    if (code==='NOT_FOUND'){
-      set.status = 404
-      return 'test not found'
+  .post("/run", ({ body }: any) => {
+    const duration = Math.random() * 10;
+    const lastIndex = Object.keys(tests).length;
+    tests[lastIndex + 1] = { ...body.test, startTime: new Date(), duration };
+  })
+  .onError(({ code, set }) => {
+    if (code === "NOT_FOUND") {
+      set.status = 404;
+      return "test not found";
     }
   })
-  .get("/status/:id", ({params: {id}}) => {
-    if(tests[parseInt(id)]){
-      const now = Date.now()
-      if((tests[parseInt(id)].startTime-now) < tests[parseInt(id)].duration){
-        return {status: "running"}
+  .get("/status/:id", ({ params: { id } }) => {
+    if (tests[parseInt(id)]) {
+      const now = Date.now();
+      if (tests[parseInt(id)].startTime - now < tests[parseInt(id)].duration) {
+        return { status: "running" };
       } else {
-        const status: string = (Math.random()*100) < 90 ? "success" : "failed"
-        delete tests[parseInt(id)]
-        return {status, log: mockLogs[0]}
-      } 
+        const status: string = Math.random() * 100 < 90 ? "success" : "failed";
+        delete tests[parseInt(id)];
+        return { status, log: mockLogs[0] };
+      }
     } else {
-      throw new NotFoundError()
+      throw new NotFoundError();
     }
   })
-  .delete("/stop/:id", ({params: {id}}) => {
-    if(tests[parseInt(id)]){
-      delete tests[parseInt(id)]
+  .delete("/stop/:id", ({ params: { id } }) => {
+    if (tests[parseInt(id)]) {
+      delete tests[parseInt(id)];
     } else {
-      throw new NotFoundError()
-    } 
-  }) 
-  .listen(3000);
+      throw new NotFoundError();
+    }
+  })
+  .listen(3001);
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`

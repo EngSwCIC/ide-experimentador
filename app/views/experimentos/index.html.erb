@@ -1,0 +1,12 @@
+<!-- app/views/sua_controller/seu_arquivo.html.erb -->
+
+<div id="StopButtonContainer"></div>
+
+<%= javascript_pack_tag 'StopButton' %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const StopButtonContainer = document.getElementById('StopButtonContainer');
+    ReactDOM.render(<StopButton />, StopButtonContainer);
+  });
+</script>
