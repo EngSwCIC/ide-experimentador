@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Graph.module.css'
 
-const YourComponent = ({ req }) => {
+const Component = ({ req }) => {
   try {
     reqArray = JSON.parse(req);
   } catch (error) {
     console.error('Erro ao fazer parse da string JSON:', error);
     reqArray = [];
   }
-
 
   return (
     <div>
@@ -35,7 +34,7 @@ const Graph = (props) => {
 
   return (
     <div>
-      <YourComponent req={req} className={styles.req}></YourComponent>
+      <Component req={req} className={styles.req}></Component>
 
     </div>
   )                   
