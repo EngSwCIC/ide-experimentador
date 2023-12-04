@@ -1,5 +1,5 @@
 require 'json'
-filePath = 'analyze_skills\logs\9_aaaccb.log'
+filePath = './logs/9_aaaccb.log'
 
 File.open(filePath, 'r') do |file|
     started = false                 # boolean pra controle de quando começa o experimento
@@ -8,47 +8,57 @@ File.open(filePath, 'r') do |file|
     isNav = true                    # boolean para controle de destino da navigation
     navigationList = []             # guarda info das linhas de navigation
 
-    def navigationLine(navigation, navigationList)      # referente à linha de navigation
+    json_data = []
+    
+    def navigationLine(navigation, navigationList, json_data)      # referente à linha de navigation
         time = navigation[1].to_f
         print time
         puts " Navigation #{navigationList[0]}"
+        json_data << { "time" => time, "message" => "Navigation #{navigationList[0]}"}
     end
         
-    def messageLine(linhaLista)                         # referente à linha de mensagem
+    def messageLine(linhaLista, json_data)                         # referente à linha de mensagem
         time = linhaLista[0]
         case
         when linhaLista[5] == '(status=sending-request)'        # request de mensagem
             print time
             puts " Sending message to #{linhaLista[2]}"
+            json_data << { "time" => time, "message" => "Sending message to #{linhaLista[2]}"}
         
         when linhaLista[5] == '(status=waiting)'                # espera de mensagem
             print time
             puts " Waiting the message get to #{linhaLista[2]}"
+            json_data << { "time" => time, "message" => "Waiting the message get to #{linhaLista[2]}"}
 
         when linhaLista[5] == '(status=message-received)'       # mensagem recebida
             print time
             puts " Message sent to #{linhaLista[2]}"
+            json_data << { "time" => time, "message" => "Message sent to #{linhaLista[2]}"}
         
         else
             puts '?'
         end
     end
 
-    def successLine(linhaLista)
+    def successLine(linhaLista, json_data)
         time = linhaLista[0]
         puts "Experiment completed successfully with #{time} seconds!"
+        json_data << { "message" => "Experiment completed successfully with #{time} seconds!"}
     end
 
-    def failureLine(linhaLista)
+    def failureLine(linhaLista, json_data)
         time = linhaLista[0]
         case linhaLista[3]
         when 'NO-SKILL'
             print time
             puts " Experiment failed with #{linhaLista[3]}: #{linhaLista[4]}."
+            json_data << { "time" => time, "message" => "Experiment failed with #{linhaLista[3]}: #{linhaLista[4]}."}
 
         when 'SKILL-FAILURE'
             print time
             puts " Skill #{linhaLista[4]} failed."
+            json_data << { "time" => time, "message" => "Skill #{linhaLista[4]} failed."}
+
         end
     end
 
@@ -70,6 +80,7 @@ File.open(filePath, 'r') do |file|
                 robotsConfigHash = JSON.parse(robotsConfigJson)
             rescue
                 puts 'TIMEOUT'
+                json_data << { "message" => "TIMEOUT"}
                 break
             end
 
@@ -79,13 +90,18 @@ File.open(filePath, 'r') do |file|
             localPlan.each do |action|
                 c += 1
                 if action[0] == 'navigation'
+
                     case
                     when action[2] == 'navto_room'
                         navigationList.append('to room')
                         
                     when action[2] == 'navto_lab'
                         navigationList.append('to lab')
+                        
+                    else
+                        navigationList.append('to X')
                     end
+
                 end
             end
 
@@ -110,29 +126,31 @@ File.open(filePath, 'r') do |file|
                     navigationList.delete_at(0)
                 end
                 isNav = true
-                navigationLine(navigation, navigationList)
+                navigationLine(navigation, navigationList, json_data)
 
             when !navigation && started == true         # caso a linha não seja de navigation
                 isNav = false
                 if message                              # se não for navigation, pode ser de mensagem
-                    messageLine(linhaLista)
+                    messageLine(linhaLista, json_data)
                 end
 
                 if success  
-                    successLine(linhaLista)
+                    successLine(linhaLista, json_data)
                 end
 
                 if failure
-                    failureLine(linhaLista)
+                    failureLine(linhaLista, json_data)
                 end
 
                 if timeout
                     puts "TIMEOUT"
+                    json_data << { "message" => "TIMEOUT"}
                 end
 
             when start
                 started = true
                 puts 'Experiment started!'
+                json_data << { "message" => "Experiment started!"}
             
             else                                        # se não for nada disso daí é ota coisa.
                 puts '??'
@@ -140,6 +158,16 @@ File.open(filePath, 'r') do |file|
 
             
         end
-    end 
+    end
+    
+    def generateJson(json_data)
+        jsonString = JSON.generate(json_data)
+        File.open('data.json', 'w') do |file|
+            file.write(jsonString)
+          end
+    end
+
+    generateJson(json_data)
+
 end
 
