@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-                                                        
+import styles from './Graph.module.css'                                                   
 const Graph = (props) => {                                   
   
   let [req, setReq] = useState("")
@@ -13,7 +13,7 @@ const Graph = (props) => {
 
   return (
     <div>
-      <h1>{req}</h1>
+      <h1 className={styles.req}>{req}</h1>
     </div>
   )                   
 }                                                       

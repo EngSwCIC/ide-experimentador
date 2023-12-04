@@ -14,7 +14,7 @@ File.open(filePath, 'r') do |file|
         time = navigation[1].to_f
         print time
         puts " Navigation #{navigationList[0]}"
-        json_data << { "time" => time, "message" => navigationList[0]}
+        json_data << { "time" => time, "message" => "Navigation #{navigationList[0]}"}
     end
         
     def messageLine(linhaLista, json_data)                         # referente à linha de mensagem
@@ -23,17 +23,17 @@ File.open(filePath, 'r') do |file|
         when linhaLista[5] == '(status=sending-request)'        # request de mensagem
             print time
             puts " Sending message to #{linhaLista[2]}"
-            json_data << { "time" => time, "message" => linhaLista[2]}
+            json_data << { "time" => time, "message" => "Sending message to #{linhaLista[2]}"}
         
         when linhaLista[5] == '(status=waiting)'                # espera de mensagem
             print time
             puts " Waiting the message get to #{linhaLista[2]}"
-            json_data << { "time" => time, "message" => linhaLista[2]}
+            json_data << { "time" => time, "message" => "Waiting the message get to #{linhaLista[2]}"}
 
         when linhaLista[5] == '(status=message-received)'       # mensagem recebida
             print time
             puts " Message sent to #{linhaLista[2]}"
-            json_data << { "time" => time, "message" => linhaLista[2]}
+            json_data << { "time" => time, "message" => "Message sent to #{linhaLista[2]}"}
         
         else
             puts '?'
