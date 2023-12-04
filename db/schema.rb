@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_13_225719) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_03_140244) do
   create_table "classifications", force: :cascade do |t|
     t.integer "trial_id"
     t.integer "tag_id"
@@ -34,6 +34,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_225719) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "local_plan_steps", force: :cascade do |t|
+    t.integer "stepNumber"
+    t.string "label"
+    t.json "parameter"
+    t.integer "robot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "skill"
+    t.index ["robot_id"], name: "index_local_plan_steps_on_robot_id"
+  end
+
+  create_table "robots", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.string "color"
@@ -44,8 +60,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_225719) do
   create_table "trial_executions", force: :cascade do |t|
     t.string "status"
     t.text "log"
+    t.integer "trial_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["trial_id"], name: "index_trial_executions_on_trial_id"
   end
 
   create_table "trial_factors", force: :cascade do |t|
@@ -76,4 +94,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_225719) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "local_plan_steps", "robots"
 end
