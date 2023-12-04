@@ -13,7 +13,9 @@ const Component = ({ req }) => {
     <div>
       {reqArray.map((item, index) => (
         <div key={index}>
-          <p>Time: {item.time}</p>
+          {item.hasOwnProperty('time') && (
+            <p>Time: {item.time}</p>
+          )}
           <p>Message: {item.message}</p>
         </div>
       ))}
