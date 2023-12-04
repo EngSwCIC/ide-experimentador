@@ -1,5 +1,6 @@
 import { define } from 'remount'      
 import Hello from "./components/Hello"
-import Graph from "./components/Graph"
+import Velocity from "./components/Velocity"
+import Graph from './components/Graph'
                                       
-define({ 'hello-component': Hello, 'graph-component': Graph })
+define({ 'hello-component': Hello, 'velocity-component': Velocity, 'graph-component': Graph })
