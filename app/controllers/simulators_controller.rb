@@ -17,6 +17,12 @@ class SimulatorsController < ApplicationController
     @simulator = Simulator.new
     render :new
   end
+  def destroy
+    @simulator = Simulator.find(params[:id])
+    if @simulator.destroy
+      redirect_to simulators_path
+    end
+  end
 
   def create
     @simulator = Simulator.create(name: params[:simulator][:name], disabled:true)

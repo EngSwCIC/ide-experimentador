@@ -27,7 +27,7 @@
       <% else %>
         <p class="button"><%= link_to "Ativado", toggle_simulator_path(simulator), method: :put %></p>
       <% end %>
-      <%= link_to "Remover", delete_simulator_path(simulator), method: :delete, 
+      <%= link_to "Deletar Simulador", delete_simulator_path(simulator), method: :delete, 
       data: {turbo_confirm: "Você tem certeza?"}%>
     </div>
   </div>
