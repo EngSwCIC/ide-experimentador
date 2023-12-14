@@ -8,18 +8,27 @@
 
 <h1>Configuração do Ambiente</h1>
 <br>
+
+
+
+<p>
+  <%= link_to "Criar Simulador", new_simulator_path, class: 'btn btn-primary' %>
+</p>
+
 <h2>Simuladores:</h2>
 
 <% @simulators.each do |simulator| %>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><%= simulator.name %></h5>
-      <a href="/simulators/<%= simulator.id %>">Ver Experimentos</a>
+      <a id='ver-experimentos' href="/simulators/<%= simulator.id %>">Ver Experimentos</a>
       <% if simulator.disabled %>
         <p class="button"><%= link_to "Desativado", toggle_simulator_path(simulator), method: :put %></p>
       <% else %>
         <p class="button"><%= link_to "Ativado", toggle_simulator_path(simulator), method: :put %></p>
       <% end %>
+      <%= link_to "Remover", delete_simulator_path(simulator), method: :delete, 
+      data: {turbo_confirm: "Você tem certeza?"}%>
     </div>
   </div>
 <% end %>

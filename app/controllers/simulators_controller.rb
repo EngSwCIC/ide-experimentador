@@ -13,8 +13,28 @@ class SimulatorsController < ApplicationController
     end
   end
 
-    #redirect_to simulators_path
-  
+  def new
+    @simulator = Simulator.new
+    render :new
+  end
+
+  def create
+    @simulator = Simulator.create(name: params[:simulator][:name], disabled:true)
+    if @simulator.save
+      flash[:success] = "Simulador adicionado com sucesso!"
+      redirect_to simulators_url
+    else
+      flash.now[:error] = "Simulador com erro"
+      render :new
+    end
+  end
+
+  def delete
+    @simulator = Simulator.find(params[:id])
+    if @simulator.delete
+      redirect_to simulators_path
+    end
+  end
 
   def show
     id = params[:id]

@@ -1,0 +1,10 @@
+<h1> Criar Simulador </h1>
+
+<%= form_with(model: @simulator, local: true) do |f| %>
+    <%= f.label :name, "Nome do Simulador:" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.submit "Registrar" %>
+<% end %>
+
+<input type="button" value="Voltar" onClick="history.go(-1)"> 
