@@ -2,6 +2,7 @@ class FilterController < ApplicationController
     
     def index
         @experiments=Experiment.joins(trials.tag).where(tag.name == params[:filter])
+        render json: 
     end
     
     def show 
