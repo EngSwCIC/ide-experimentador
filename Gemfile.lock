@@ -75,10 +75,10 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    addressable (2.8.5)
+    addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     base64 (0.2.0)
-    bigdecimal (3.1.4)
+    bigdecimal (3.1.5)
     bindex (0.8.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
@@ -96,10 +96,11 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
-    debug (1.8.0)
-      irb (>= 1.5.0)
-      reline (>= 0.3.1)
+    debug (1.9.0)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -109,8 +110,8 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    io-console (0.6.0)
-    irb (1.9.1)
+    io-console (0.7.1)
+    irb (1.10.1)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
@@ -133,7 +134,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    net-imap (0.4.7)
+    net-imap (0.4.8)
       date
       net-protocol
     net-pop (0.1.2)
@@ -194,9 +195,9 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
-    rdoc (6.6.0)
+    rdoc (6.6.2)
       psych (>= 4.0.0)
-    regexp_parser (2.8.2)
+    regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
     rexml (3.2.6)
@@ -223,6 +224,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -276,6 +283,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   selenium-webdriver
+  simplecov
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

@@ -28,7 +28,7 @@ class SimulatorsController < ApplicationController
     @simulator = Simulator.create(name: params[:simulator][:name], disabled:true)
     if @simulator.save
       flash[:success] = "Simulador adicionado com sucesso!"
-      redirect_to simulators_url
+      redirect_to simulators_url, notice: "Simulador adicionado com sucesso!"
     else
       flash.now[:error] = "Simulador com erro"
       render :new

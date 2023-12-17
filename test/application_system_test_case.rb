@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require "test_helper"
 
 WINDOWS_HOST = `cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'`.strip

@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Populate your database with fake data [https://github.com/faker-ruby/faker]
 gem 'faker'
-# Use rspec for tests 
+# Use rspec for tests
 group :development, :test do
   gem 'rspec-rails'
 end
@@ -76,3 +76,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+gem 'simplecov', require: false, group: :test
+

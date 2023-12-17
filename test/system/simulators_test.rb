@@ -19,22 +19,16 @@ class SimulatorsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Configuração do Ambiente"
   end
 
-  # test "should update Post" do
-  #   visit post_url(@post)
-  #   click_on "Edit this post", match: :first
-
-  #   fill_in "Body", with: @post.body
-  #   fill_in "Title", with: @post.title
-  #   click_on "Update Post"
-
-  #   assert_text "Post was successfully updated"
-  #   click_on "Back"
+  # test "should see all experiments related" do
+  #   visit simulators_path(@simulator)
+  #   click_on "ver-experimentos", match: :first
+  #   assert_text "Experimentos do
+  #   click_on "Voltar"
   # end
 
-  # test "should destroy Post" do
-  #   visit post_url(@post)
-  #   click_on "Destroy this post", match: :first
-
-  #   assert_text "Post was successfully destroyed"
-  # end
+  test "should destroy Simulator" do
+    visit simulators_path(@simulator)
+    click_on "Deletar Simulador", match: :first
+    assert_selector "h1", text: "Configuração do Ambiente"
+  end
 end
