@@ -6,7 +6,6 @@ const Velocity = () => {
 
   useEffect(() => {fetch(`/velocity/getData/${10}`).then(async res=>{
     const parse = await res.json()
-    console.log(parse)
     return parse
     }).then(res=>setReq(res))
   }, [])
@@ -15,6 +14,7 @@ const Velocity = () => {
     Object.keys(req).forEach(function(key){
         lista.push({"x": key, "y": req[key]})
     })
+    
 
     const data = lista; // <- lista de dicionarios
 
@@ -23,7 +23,7 @@ const Velocity = () => {
             <Line type="monotone" dataKey="uv" stroke="#8884d8" />
         </LineChart>
     );
-
+  console.log(lista)
   return (
     <div>
         <LineChart width={600} height={300} data={data}>

@@ -12,7 +12,7 @@ class VelocityController < ApplicationController
 
 
     #a ideia é extrair o log do bd quando ele estiver disponivel
-    log_file_path = './analyze_skills/logs/2_aaaabp.log'
+    log_file_path = '././logs/2_aaaabp.log'
 
 
     json_array = []
