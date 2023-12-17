@@ -127,20 +127,41 @@ const mockLogs = [
 ]
 
 const app = new Elysia()
-  .get("/", () => "mock api")
-  .get("/skills", () => availiableSkills)
-  .post("/run", ({ body }: any) => {
+  .get("/", (_, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.send("mock api");
+  })
+  .get("/skills", (_, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.send(availiableSkills);
+  })
+  .post("/run", ({ body }: any, res) => {
     const duration = Math.random() * 10;
     const lastIndex = Object.keys(tests).length;
     tests[lastIndex + 1] = { ...body.test, startTime: new Date(), duration };
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.send();
   })
-  .onError(({ code, set }) => {
+  .onError(({ code, set }: { code: string, set: any }, res) => {
     if (code === "NOT_FOUND") {
       set.status = 404;
-      return "test not found";
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+      res.send("test not found");
     }
   })
-  .get("/status/:id", ({ params: { id } }) => {
+  .get("/status/:id", ({ params: { id } }, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    // Your existing code for handling the status request
     if (tests[parseInt(id)]) {
       const now = Date.now();
       if (tests[parseInt(id)].startTime - now < tests[parseInt(id)].duration) {
@@ -154,7 +175,10 @@ const app = new Elysia()
       throw new NotFoundError();
     }
   })
-  .delete("/stop/:id", ({ params: { id } }) => {
+  .delete("/stop/:id", ({ params: { id } }, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     if (tests[parseInt(id)]) {
       delete tests[parseInt(id)];
     } else {
