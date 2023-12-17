@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+.title_logs{
+    color: rgb(0, 0, 0)
+}
+
+ .table_logs{
+    border: 2px solid rgb(0, 0, 0);
+    width: 500px;
+    height: 200px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+ }
+
+ .container_logs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(255, 255, 255)
+ }
+
+ .itens_logs{
+    width: 100px;
+    border: 2px solid rgb(0, 0, 0);
+ }
+
+ .input_log{
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }
