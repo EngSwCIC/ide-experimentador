@@ -28,17 +28,44 @@ const Component = ({ req }) => {
   }
 
   semRepLista = []
+  errorList = []
   reqArray.forEach(function(key, index){
     switch (index){
-    case 0:
+    case 0: // primeira message tem que ser start
       if(key.message == 'Experiment started!'){
         semRepLista.push({"time": 0.00, "message": "Start!"})
       }
+      else{
+        semRepLista.push({"time": 0.00, "message": "NOT STARTED!"}) // se nao, nao comecou
+        errorList.push({"time": 0.00, "message": "Error in start"})
+      }
       break;
     
-    case reqArray.length - 1:
-      if(key.message == 'Experiment completed successfully with 130.37 seconds!'){
-        semRepLista.push({"time": reqArray[index - 1].time, "message": "Success!"}) 
+    case reqArray.length - 1: // última message tem que ser sucesso
+      if(key.message.includes('Experiment completed successfully')){
+        semRepLista.push({"time": key.time, "message": "Success!"}) 
+      }
+
+      else{
+        if(key.message.includes('Skill')){  // ou falhou em alguma skill
+          errorList.push({"time": key.time, "message": key.message.substring(5)})
+        }
+
+        if(key.message.includes('Experiment failed')){  // ou faltou skill
+          errorList.push({"time": key.time, "message": key.message})
+        }
+
+        if(key.message.includes('TIMEOUT')){  // ou deu TIMEOUT
+          errorList.push({"time": reqArray[index - 1].time, "message": key.message})
+        }
+
+        if(key.message.includes('Battery')){  // ou acabou a bateria
+          errorList.push({"time": reqArray[index - 1].time, "message": key.message})
+        }
+
+        else if(errorList.length == 0){
+          errorList.push({"time": reqArray[index - 1].time, "message": 'No action taken.'})
+        }
       }
       break;
 
@@ -62,8 +89,10 @@ const Component = ({ req }) => {
           semRepLista.push({"time": key.time, "message":'Message sent!'})
         }
       }
-    }  
+      
+    }
   })
+
 
   console.log(reqArray)
   console.log(semRepLista)
@@ -92,6 +121,22 @@ const Component = ({ req }) => {
             activeDot={{ r: 8 }}
           />
       </LineChart>
+
+      <div>
+        {errorList.length > 0 ? (
+          errorList.map((item, index) => (
+            <div key={index}>
+              <p>Experiment failed at {item.time} seconds: {item.message}</p>
+            </div>
+          ))
+          ) : semRepLista.length === 1 ? (
+            <p>Experimento sem ações!</p>
+        ) : (
+          <p>Sucesso!</p>
+        )}
+      </div>
+
+
     </div>
   );
 };

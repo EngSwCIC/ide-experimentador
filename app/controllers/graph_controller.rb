@@ -2,7 +2,7 @@ require 'json'
 
 class GraphController < ApplicationController
     def jsonGet
-        filePath = '././logs/9_aaaccb.log'
+        filePath = '././logs/71_acbcbb.log'
         File.open(filePath, 'r') do |file|
             started = false                 # boolean pra controle de quando começa o experimento
             finished = false                # boolean pra controle de quando termina o experimento
@@ -45,7 +45,7 @@ class GraphController < ApplicationController
             def successLine(linhaLista, json_data)
                 time = linhaLista[0]
                 puts "Experiment completed successfully with #{time} seconds!"
-                json_data << { "message" => "Experiment completed successfully with #{time} seconds!"}
+                json_data << { "time" => time, "message" => "Experiment completed successfully with #{time} seconds!"}
             end
         
             def failureLine(linhaLista, json_data)
@@ -60,7 +60,9 @@ class GraphController < ApplicationController
                     print time
                     puts " Skill #{linhaLista[4]} failed."
                     json_data << { "time" => time, "message" => "Skill #{linhaLista[4]} failed."}
-        
+                    
+                when 'LOWBATT'
+                    json_data << { "time" => time, "message" => "Battery is low."}
                 end
             end
         
@@ -119,7 +121,9 @@ class GraphController < ApplicationController
                     # === #
                     timeout = line.match(/\[WARN\], logger, TIMEOUT, (\w+)/)
                     # === #
-                    failure =  line.match(/(\d+\.\d+), \[WARN\], (\w+), SKILL-FAILURE, (\w+)/) || line.match(/(\d+\.\d+), \[WARN\], (\w+), NO-SKILL, (\w+)/)
+                    failure =  line.match(/(\d+\.\d+), \[WARN\], (\w+), SKILL-FAILURE, (\w+)/) || line.match(/(\d+\.\d+), \[WARN\], (\w+), NO-SKILL, (\w+)/) || line.match(/(\d+\.\d+), \[WARN\], (\w+), LOWBATT, (\w+)/)
+                    # === #
+                    
         
         
                     case
