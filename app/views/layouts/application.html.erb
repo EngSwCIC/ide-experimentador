@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%= yield %>
+  <div id="sidebar-root"></div>
+  <script>
+    const sidebarRoot = document.getElementById('sidebar-root');
+    ReactDOM.render(<Sidebar />, sidebarRoot);
+  </script>
   </body>
 </html>

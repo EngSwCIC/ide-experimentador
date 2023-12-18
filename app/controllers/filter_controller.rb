@@ -2,7 +2,7 @@ class FilterController < ApplicationController
     
     def index
         @experiments=Experiment.joins(trials.tag).where(tag.name == params[:filter])
-        render json: 
+        # render json: 
     end
     
     def show 
@@ -27,4 +27,4 @@ class FilterController < ApplicationController
         def experiment_params
         params.require(:experiment).permit(:name,boolean)
         end
-end
+    end
