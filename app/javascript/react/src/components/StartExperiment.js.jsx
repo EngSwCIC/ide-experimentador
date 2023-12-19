@@ -22,7 +22,7 @@ const StartExperiment = () => {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button id="startButton" onClick={handleClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
