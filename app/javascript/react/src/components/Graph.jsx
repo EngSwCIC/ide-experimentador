@@ -129,7 +129,7 @@ const Component = ({ req }) => {
               <p>Experiment failed at {item.time} seconds: {item.message}</p>
             </div>
           ))
-          ) : semRepLista.length === 1 ? (
+          ) : semRepLista.length <= 1 ? (
             <p>Experimento sem ações!</p>
         ) : (
           <p>Sucesso!</p>

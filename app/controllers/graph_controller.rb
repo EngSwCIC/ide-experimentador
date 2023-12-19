@@ -2,7 +2,7 @@ require 'json'
 
 class GraphController < ApplicationController
     def jsonGet
-        filePath = '././logs/71_acbcbb.log'
+        filePath = '././logs/33_ababcp.log'
         File.open(filePath, 'r') do |file|
             started = false                 # boolean pra controle de quando começa o experimento
             finished = false                # boolean pra controle de quando termina o experimento
@@ -38,7 +38,7 @@ class GraphController < ApplicationController
                     json_data << { "time" => time, "message" => "Message sent to #{linhaLista[2]}"}
                 
                 else
-                    puts '?'
+                    puts '?' 
                 end
             end
         
@@ -124,8 +124,7 @@ class GraphController < ApplicationController
                     failure =  line.match(/(\d+\.\d+), \[WARN\], (\w+), SKILL-FAILURE, (\w+)/) || line.match(/(\d+\.\d+), \[WARN\], (\w+), NO-SKILL, (\w+)/) || line.match(/(\d+\.\d+), \[WARN\], (\w+), LOWBATT, (\w+)/)
                     # === #
                     
-        
-        
+
                     case
                     when navigation && started == true          # caso a linha seja de navigation
                         if !isNav
@@ -161,8 +160,6 @@ class GraphController < ApplicationController
                     else                                        # se não for nada disso daí é ota coisa.
                         puts '??'
                     end
-        
-                    
                 end
             end
 
