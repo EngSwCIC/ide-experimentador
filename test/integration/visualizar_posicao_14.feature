@@ -21,3 +21,4 @@ Cenario: A pesquisa de posição retorna coordenadas (feliz)
   Quando o usuario estiver na tela de visualizar posição
   Dado que o usuario solicite o status da posição usando dados validos
   Então o usuario deveria ver a posição correspondente desse instante
+
