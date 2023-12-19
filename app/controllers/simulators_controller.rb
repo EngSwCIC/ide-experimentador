@@ -1,8 +1,9 @@
 class SimulatorsController < ApplicationController
   def index
-    @simulators = Simulator.all
+    @simulators = Simulator.all # página que lista todos os simuladores
   end
   def toggle
+    # Botão de ativar/desativar simulador
     @simulator = Simulator.find(params[:id])
     if @simulator.disabled?
       @simulator.update!(disabled: false)
@@ -14,10 +15,12 @@ class SimulatorsController < ApplicationController
   end
 
   def new
+    # Página de criação de simulador
     @simulator = Simulator.new
     render :new
   end
   def destroy
+    # Botão de deletar simulador
     @simulator = Simulator.find(params[:id])
     if @simulator.destroy
       redirect_to simulators_path
@@ -25,6 +28,7 @@ class SimulatorsController < ApplicationController
   end
 
   def create
+    # Criação de simulador
     @simulator = Simulator.create(name: params[:simulator][:name], disabled:true)
     if @simulator.save
       flash[:success] = "Simulador adicionado com sucesso!"
@@ -36,6 +40,7 @@ class SimulatorsController < ApplicationController
   end
 
   def delete
+    # Botão de deletar simulador
     @simulator = Simulator.find(params[:id])
     if @simulator.delete
       redirect_to simulators_path
@@ -43,6 +48,7 @@ class SimulatorsController < ApplicationController
   end
 
   def show
+    # Página de visualização de experimentos relacionados a um simulador
     id = params[:id]
     teste = SimulatorExperiment.all
     @simulator = Simulator.find(id=id)
