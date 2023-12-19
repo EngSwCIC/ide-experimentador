@@ -17,11 +17,11 @@ Para acessar a página de documentação, entre no diretório doc dentro do proj
 ```bash
 open index.html
 ```
-### Teste RSPEC com cobertura
+## Teste RSPEC com cobertura
 ```bash
 rspec spec
 ```
-### Testes utilizando Selenium + Capybara
+## Testes utilizando Selenium + Capybara
 ```bash
 rails test:system
 ```
