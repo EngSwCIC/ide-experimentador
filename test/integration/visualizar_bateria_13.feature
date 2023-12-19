@@ -1,8 +1,11 @@
+
 # language: pt
+
 Funcionalidade: Visualizar os dados de bateria do robô
 Eu como Engenheiro de Sistemas Robóticos
 Quero visualizar o status da bateria do robô em um dado momento
 A fim de monitorar e otimizar o consumo de energia durante o funcionamento contínuo do robô
+
 
 @javascript
 Cenário: Consulta de dados de bateria após o término do teste (triste)
