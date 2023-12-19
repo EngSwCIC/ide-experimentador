@@ -34,7 +34,7 @@ Cenário: Desativar Simulador (Happy Path)
     Então devo receber uma confirmação de que o simulador foi desativado com sucesso.
 
 Cenário: Criar um simulador (Happy path)
-    Dado que o usuário está logado e  na página de configurações 
+    Dado que o usuário está na página de configurações 
     E deseja adicionar um novo simulador
     Quando clicar no botão "Adicionar novo simulador"
     E adicionar uma URL válida
