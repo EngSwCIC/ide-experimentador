@@ -76,3 +76,8 @@ gem "tailwindcss-rails", "~> 2.0"
 gem 'rest-client'
 gem 'json'
 gem 'json-schema'
+
+gem "rubycritic", require: false
+gem 'simplecov', require: false, group: :test
+gem 'metric_fu-Saikuro', require: false, group: :test
+gem 'rdoc', require: false, group: :test

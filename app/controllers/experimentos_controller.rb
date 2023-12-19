@@ -1,10 +1,16 @@
+# ExperimentosController
+#
+# Controller responsável por interagir com uma API externa para iniciar, verificar o status e parar testes.
 class ExperimentosController < ApplicationController
   require 'rest-client'
   require 'json'
   require 'json-schema'
 
+  # URL base da API externa
   API_BASE_URL = 'http://localhost:3001'.freeze
 
+  # Inicia os testes enviando um arquivo JSON com dados de teste para a API externa.
+  # Endpoint: POST /start_tests
   def start_tests
     # Verifica se o arquivo JSON existe e possui o formato esperado
     test_data = read_and_validate_test_data('../../../../../exemploCurtoReq.json')
@@ -25,6 +31,8 @@ class ExperimentosController < ApplicationController
     end
   end
 
+  # Verifica o status de um teste específico com base no ID fornecido.
+  # Endpoint: GET /check_status/:id
   def check_status
     test_id = params[:id]
 
@@ -41,6 +49,8 @@ class ExperimentosController < ApplicationController
     end
   end
 
+  # Para um teste específico com base no ID fornecido.
+  # Endpoint: DELETE /stop_test/:id
   def stop_test
     test_id = params[:id]
 
@@ -59,6 +69,10 @@ class ExperimentosController < ApplicationController
 
   private
 
+  # Lê e valida os dados de teste de um arquivo JSON.
+  #
+  # @param file_path [String] O caminho do arquivo JSON.
+  # @return [Hash, nil] Os dados de teste se o arquivo existir e for válido, caso contrário, nil.
   def read_and_validate_test_data(file_path)
     return nil unless File.exist?(file_path)
 
@@ -70,6 +84,10 @@ class ExperimentosController < ApplicationController
     end
   end
 
+  # Valida os dados de teste com base no esquema JSON fornecido.
+  #
+  # @param data [Hash] Os dados de teste a serem validados.
+  # @return [Boolean] True se os dados de teste forem válidos, False caso contrário.
   def json_schema_valid?(data)
     schema = {
       "type" => "object",
@@ -106,7 +124,7 @@ class ExperimentosController < ApplicationController
                   "type" => "object",
                   "properties" => {
                     "skill" => { "type" => "string" },
-                    "params" => { "type" => "array" }, # Adapte conforme necessário
+                    "params" => { "type" => "array" }, 
                     "label" => { "type" => "string" },
                   },
                   "required" => ["skill", "params", "label"],
@@ -124,6 +142,9 @@ class ExperimentosController < ApplicationController
     JSON::Validator.validate(schema, data)
   end
 
+  # Retorna o esquema para coordenadas (x, y, z).
+  #
+  # @return [Hash] O esquema para coordenadas.
   def coordinates_schema
     {
       "x" => { "type" => "number" },
