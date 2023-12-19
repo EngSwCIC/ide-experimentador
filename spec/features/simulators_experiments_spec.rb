@@ -21,17 +21,6 @@ RSpec.describe 'Creating a new simulator', type: :feature do
   end
 end
 
-# RSpec.describe 'Deleting a simulator', type: :feature do
-#   fixtures :simulators
-
-#   scenario 'delete' do
-#     @simulator = simulators(:one)
-#     visit simulators_path(@simulator)
-#     click_on 'Deletar Simulador'
-#     expect(page).to have_content('Simuladores')
-#   end
-# end
-
 
 RSpec.describe 'Visualizing experiments related to a simulator', type: :feature do
   scenario 'show' do

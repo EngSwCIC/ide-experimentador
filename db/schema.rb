@@ -13,14 +13,14 @@
 ActiveRecord::Schema[7.1].define(version: 2023_11_30_023601) do
   create_table "experiments", force: :cascade do |t|
     t.string "name"
-    t.boolean "disabled"
+    t.boolean "disabled", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "simulator_experiments", force: :cascade do |t|
-    t.integer "simulator_id", null: false
-    t.integer "experiment_id", null: false
+    t.integer "simulator_id"
+    t.integer "experiment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["experiment_id"], name: "index_simulator_experiments_on_experiment_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_023601) do
 
   create_table "simulators", force: :cascade do |t|
     t.string "name"
-    t.boolean "disabled"
+    t.boolean "disabled", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

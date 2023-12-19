@@ -1,7 +1,6 @@
 require 'faker'
 
-# Exemplo: criando 10 simuladores fictícios
-
+# Gerando 10 simuladores
 count = 0
 10.times do
   count+=1
@@ -10,7 +9,7 @@ count = 0
     disabled: false
   )
 end
-
+# Gerando 10 experimentos
 count = 0
 10.times do
   count += 1
@@ -19,13 +18,13 @@ count = 0
     disabled: false
   )
 end
+# gerando 10 tabelas de relacionamento entre simuladores e experimentos
 count = 0
 10.times do
   count+=1
   SimulatorExperiment.create!(
-    simulator_id: 1,
-    experiment_id: count
+      simulator_id: count,
+      experiment_id: count
+
   )
 end
-# Apagar exemplos do banco de dados
-# Simulator.where(disabled: false).destroy_all

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/features/simulators_experiments_spec.rb": {
+      "/home/mcr9n/ide-experimentador/spec/features/simulators_experiments_spec.rb": {
         "lines": [
           1,
           null,
@@ -47,7 +47,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/rails_helper.rb": {
+      "/home/mcr9n/ide-experimentador/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -119,7 +119,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/environment.rb": {
+      "/home/mcr9n/ide-experimentador/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -128,7 +128,7 @@
           1
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/application.rb": {
+      "/home/mcr9n/ide-experimentador/config/application.rb": {
         "lines": [
           1,
           null,
@@ -159,7 +159,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/boot.rb": {
+      "/home/mcr9n/ide-experimentador/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -167,7 +167,7 @@
           1
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/environments/test.rb": {
+      "/home/mcr9n/ide-experimentador/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -239,7 +239,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/initializers/assets.rb": {
+      "/home/mcr9n/ide-experimentador/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -255,7 +255,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/initializers/content_security_policy.rb": {
+      "/home/mcr9n/ide-experimentador/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -266,38 +266,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/initializers/inflections.rb": {
-        "lines": [
           null,
           null,
           null,
@@ -316,7 +284,39 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/initializers/permissions_policy.rb": {
+      "/home/mcr9n/ide-experimentador/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -333,7 +333,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/config/routes.rb": {
+      "/home/mcr9n/ide-experimentador/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -362,25 +362,25 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/helpers/application_helper.rb": {
+      "/home/mcr9n/ide-experimentador/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/helpers/hello_helper.rb": {
+      "/home/mcr9n/ide-experimentador/app/helpers/hello_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/helpers/simulators_helper.rb": {
+      "/home/mcr9n/ide-experimentador/app/helpers/simulators_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/helpers/simulators_helper_spec.rb": {
+      "/home/mcr9n/ide-experimentador/spec/helpers/simulators_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -399,85 +399,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/models/experiment_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/models/experiment.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/models/simulator_experiment_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/models/simulator_experiment.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/models/simulator_spec.rb": {
+      "/home/mcr9n/ide-experimentador/spec/models/experiment_spec.rb": {
         "lines": [
           1,
           null,
@@ -497,7 +419,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/models/simulator.rb": {
+      "/home/mcr9n/ide-experimentador/app/models/experiment.rb": {
         "lines": [
           1,
           1,
@@ -507,7 +429,85 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/requests/simulators_controller_spec.rb": {
+      "/home/mcr9n/ide-experimentador/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/spec/models/simulator_experiment_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/app/models/simulator_experiment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/spec/models/simulator_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/app/models/simulator.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/mcr9n/ide-experimentador/spec/requests/simulators_controller_spec.rb": {
         "lines": [
           null,
           1,
@@ -536,7 +536,7 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/controllers/simulators_controller.rb": {
+      "/home/mcr9n/ide-experimentador/app/controllers/simulators_controller.rb": {
         "lines": [
           1,
           1,
@@ -561,6 +561,9 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
           null,
           null,
           null,
@@ -578,6 +581,9 @@
           1,
           0,
           0,
+          0,
+          0,
+          null,
           0,
           null,
           null,
@@ -597,13 +603,13 @@
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/app/controllers/application_controller.rb": {
+      "/home/mcr9n/ide-experimentador/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/bruno/Desktop/UnB/ES/ide-experimentador/spec/requests/simulators_spec.rb": {
+      "/home/mcr9n/ide-experimentador/spec/requests/simulators_spec.rb": {
         "lines": [
           1,
           null,
@@ -633,6 +639,6 @@
         ]
       }
     },
-    "timestamp": 1702948710
+    "timestamp": 1702989696
   }
 }
