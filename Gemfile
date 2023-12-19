@@ -73,3 +73,6 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
+gem 'rest-client'
+gem 'json'
+gem 'json-schema'
