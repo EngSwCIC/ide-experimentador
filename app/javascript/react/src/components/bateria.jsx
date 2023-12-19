@@ -122,7 +122,7 @@ const BatteryTableComponent  = () => {
   
 return (
     <div className="container_logs">
-      <h2 className="title_logs">Robot Position Table</h2>
+      <h2 className="title_logs">Robot Battery Table</h2>
       <input id="trial_input" className="input_log" type="text" defaultValue={trials} placeholder="Digite o id do trial" onChange={(e) => setTrials(e.target.value)}></input>
       <input id="battery_input" className="input_log" type="text" defaultValue={search} placeholder="Digite a palavra-chave" onChange={(e) => setSearch(e.target.value)}></input>
         {display[0] != undefined ? (
