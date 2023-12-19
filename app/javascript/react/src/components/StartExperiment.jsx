@@ -6,7 +6,7 @@ const StartExperiment = (props) => {
         fetch(`http://localhost:3001/run`, {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'content-type': 'application/json'
             },
             body: props,
         }).then(response => {

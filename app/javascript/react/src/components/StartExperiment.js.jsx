@@ -5,6 +5,9 @@ const StartExperiment = () => {
   const handleClick = () => {
     fetch(`http://localhost:3001/run`, {
       method: "POST",
+      headers: {
+        'content-type': 'application/json'
+    },
       body: JSON.stringify(jsonData),
     })
       .then((response) => {

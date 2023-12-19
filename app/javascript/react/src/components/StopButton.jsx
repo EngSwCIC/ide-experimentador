@@ -6,7 +6,7 @@ const StopButton = (props) => {
         fetch(`http://localhost:3001/stop/${props.id}`, {
             method: 'DELETE',
             headers: {
-                'Content-type': 'application/json'
+                'content-type': 'application/json'
             },
         }).then(response => {
             if (!response.ok) {

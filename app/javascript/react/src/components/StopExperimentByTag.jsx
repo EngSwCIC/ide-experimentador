@@ -5,18 +5,20 @@ const StopButton = (props) => {
     const handleClick = () => {
         for (i = 0; i < props.count(); i++) {
             fetch(`http://localhost:3001/stop/${props[i]}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-            }).then(response => {
-                if (!response.ok) {
-                    <span>Teste não encontrado</span>
-                }
-                return response.json()
-            }).then(data => {
-                console.log(data)
+              method: "DELETE",
+              headers: {
+                "content-type": "application/json",
+              },
             })
+              .then((response) => {
+                if (!response.ok) {
+                  <span>Teste não encontrado</span>;
+                }
+                return response.json();
+              })
+              .then((data) => {
+                console.log(data);
+              });
         }
     }
 
