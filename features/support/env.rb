@@ -80,4 +80,13 @@ Capybara.configure do |config|
   config.server_port = '3000'
 end
 
-Capybara.javascript_driver = :selenium_remote_chrome
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Slenium::Driver.new app, browser: :chrome,
+    options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
+end
+
+Capybara.javascript_driver = :chrome_headless
