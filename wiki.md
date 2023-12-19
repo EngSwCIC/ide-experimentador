@@ -23,10 +23,6 @@ open index.html
 ```bash
 rspec spec
 ```
-## Testes utilizando Selenium + Capybara
-```bash
-rails test:system
-```
 
 ## Rodar usando Tailwind
 ```bash
