@@ -21,3 +21,9 @@ Cenario: A pesquisa de posição retorna coordenadas (feliz)
   Quando o usuario estiver na tela de visualizar posição
   Dado que o usuario solicite o status da posição usando dados validos
   Então o usuario deveria ver a posição correspondente desse instante
+
+@javascript
+Cenário: A pesquisa de status é concluida com sucesso (feliz)
+  Quando o usuario estiver na tela de visualizar posição
+  Dado que eu solicite o status da posição usando dados validos de um trial valido usando um tempo validos
+  Então o usuario deveria ver a posição correspondente desse instante

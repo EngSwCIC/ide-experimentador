@@ -21,3 +21,9 @@ Cenário: A pesquisa de status é concluida com sucesso (feliz)
   Quando o usuario estiver na tela de visualizar nivel de bateria
   Dado que eu solicite o status da bateria usando dados validos
   Então eu deveria ver a porcentagem da bateria correspondente desse instante
+
+@javascript
+Cenário: A pesquisa de status é concluida com sucesso (feliz)
+  Quando o usuario estiver na tela de visualizar nivel de bateria
+  Dado que eu solicite o status da bateria de um trial valido usando um tempo validos
+  Então eu deveria ver a porcentagem da bateria correspondente desse instante
