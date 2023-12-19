@@ -1,7 +1,7 @@
 require 'rails_helper.rb'
 
 RSpec.describe "GraphController", type: :request do
-  describe "GET velocity#getData" do
+  describe "GET graph#jsonGet" do
     it "Acessa graph/skillsGet" do
       get graph_skillsGet_path
       expect(response).to have_http_status(200)
