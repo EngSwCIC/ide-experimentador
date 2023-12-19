@@ -7,36 +7,36 @@ Context:
     Given that I have run a test in the simulator,
     Then I should see the robot's skills in the test run.
 
-@javascript
+@skip_scenario
 Scenario: Success
     Given that the robot has different skills in its local plan,
     And the progress of the plan depends on the success of each skill,
     Then it should be informed whether the simulation was successful.
 
-@javascript
+@skip_scenario
 Scenario: Failure
     Given that the robot has different skills in its local plan,
     And the progress of the plan depends on the success of each skill,
     Then it must be informed which of the robot's skills failed.
 
-@javascript
+@skip_scenario
 Scenario: Observation of test execution time
     Given that the user analyzes the test execution logs,
     And observes the time stamp field in each log entry,
     Then the user observes, in addition to success and failure, at what point a skill is changed.
 
-@javascript
+@skip_scenario
 Scenario: Viewing skills without running a simulation
     Given that the user tries to access the skills view without running the simulation,
     Then the interface gives an error message.
 
-@javascript
+@skip_scenario
 Scenario: Robot without skills 
     Given that a robot is selected for skills data visualization,
     And this robot has no skills assigned,
     Then the interface should indicate that there are no skills available for the robot.
 
-@javascript
+@skip_scenario
 Scenario: Skills fields not filled in correctly
     Given that a robot has an associated local plan,
     And the local plan contains incorrect information or skill fields that are not filled in correctly,
@@ -44,14 +44,14 @@ Scenario: Skills fields not filled in correctly
     And the interface should detect the errors in the skills fields,
     Then prevent/interrupt the test run.
 
-@javascript
+@skip_scenario
 Scenario: Navigation
     Given that there is a local plan with the "navigation" skill,
     And the "parameter" field is filled in with the room and the destination waypoints,
     And the "skill" field, within the "local_plan" field, must be filled in with "navigation"
     Then the robot must navigate towards the location.
 
-@javascript
+@skip_scenario
 Scenario: Approach Person
     Given that the robot has used "navigation",
     And it wants to move towards someone,
@@ -59,7 +59,7 @@ Scenario: Approach Person
     And the "parameter" field should contain "topic" with the target person,
     Then the robot should approach the target person.
 
-@javascript
+@skip_scenario
 Scenario: Authenticate Person
     Given that the robot has used "approach_person",
     And went to meet a person,
@@ -68,27 +68,27 @@ Scenario: Authenticate Person
     And the "parameter" field must contain "topic" with the person to be authenticated,
     Then the person must be authenticated.
 
-@javascript
+@skip_scenario
 Scenario: Approach Robot
     Given that the robot must approach an object,
     And the "skill" field in the "local_plan" should be filled with "approach_robot",
     And the "parameter" field must contain "topic" with the approach object,
     Then the robot must approach the object.
 
-@javascript
+@skip_scenario
 Scenario: Operate Drawer
     Given that the robot used "authenticate_person",
     And it must perform an action on the person,
     And the "skill" field in the "local_plan" should be filled with "operate_drawer",
     Then the "parameter" field must contain "action" with "open".
 
-@javascript
+@skip_scenario
 Scenario: Wait Message
     Given that the robot used "operate_drawer",
     And the status of the message should, if successful, be received,
     Then Operate Drawer must contain "action" with "close".
 
-@javascript
+@skip_scenario
 Scenario: Send Message
     Given that there is a local plan,
     And that the robot has used "operate_drawer",

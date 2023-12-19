@@ -3,7 +3,7 @@ Feature: View speed data
 
 @javascript
 Scenario: Test not run (Sad)
-    Given that the user is on a experiment screen with id "1"
+    Given that the user is on a experiment screen with id "0"
     And the test was never run
     When I click on the speed button
     Then it shouldn't be possible to view the data
@@ -17,14 +17,14 @@ Scenario: Test completed successfully (Happy)
 
 @javascript
 Scenario: Test completed with failure (Sad)
-    Given that the user is on a experiment screen with id "1"
+    Given that the user is on a experiment screen with id "2"
     And the test ran successfully but with a failure
     When I click on the speed button
     Then I should have a visualization of the failure
 
 @javascript
 Scenario: Data collection failed (Sad)
-    Given that the user is on a experiment screen with id "1"
+    Given that the user is on a experiment screen with id "3"
     And that the test was run
     And the speed information is missing
     When I click on the speed button
