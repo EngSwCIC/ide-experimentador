@@ -21,16 +21,19 @@ class SimulatorsController < ApplicationController
     @simulator = Simulator.find(params[:id])
     if @simulator.destroy
       redirect_to simulators_path
+      flash[:success] = "Simulador deletado com sucesso!"
+    else
+      flash.now[:error] = "Erro ao deletar simulador!"
     end
   end
 
   def create
     @simulator = Simulator.create(name: params[:simulator][:name], disabled:true)
     if @simulator.save
-      flash[:success] = "Simulador adicionado com sucesso!"
-      redirect_to simulators_url, notice: "Simulador adicionado com sucesso!"
+      redirect_to simulators_url
+      flash[:success] = "Simulador criado com sucesso!"
     else
-      flash.now[:error] = "Simulador com erro"
+      flash.now[:error] = "Erro ao cadastrar simulador!"
       render :new
     end
   end
@@ -38,7 +41,10 @@ class SimulatorsController < ApplicationController
   def delete
     @simulator = Simulator.find(params[:id])
     if @simulator.delete
-      redirect_to simulators_path
+      flash[:success] = "Simulador deletado com sucesso!"
+      redirect_to simulators_url
+    else
+      flash.now[:error] = "Erro ao deletar simulador!"
     end
   end
 
