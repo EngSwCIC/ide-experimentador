@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'hello/worldGet', to: "hello#index" 
   get 'graph/skills'
   get 'graph/skillsGet', to: "graph#jsonGet"
-  get 'velocity/graph'
+  get 'velocity/graph/:id', to: "velocity#graph"
   get 'velocity/getData/:id', to: "velocity#getData"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

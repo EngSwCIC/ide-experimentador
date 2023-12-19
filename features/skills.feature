@@ -1,91 +1,104 @@
-Funcionalidade: Visualizar dados de skills do teste executado
-    Como um usuário interessado nos resultados dos testes executados,
-    Para compreender as skills demonstradas durante um teste,
-    Eu quero visualizar os dados de skills associados ao robô.
+Feature: View skills data from the test run
+    As a user interested in the results of tests performed,
+    To understand the skills demonstrated during a test,
+    I want to visualize the skills data associated with the robot.
 
-Contexto:
-    Dado que eu executei um teste no simulador,
-    Então eu deveria ver as skills do robô no teste executado.
+Context:
+    Given that I have run a test in the simulator,
+    Then I should see the robot's skills in the test run.
 
-Cenário: Sucesso
-    Dado que o robô possui diferentes skills em seu plano local,
-    E o avanço do plano depende do sucesso de cada skill,
-    Então deve ser informado se houve sucesso na simulação.
+@javascript
+Scenario: Success
+    Given that the robot has different skills in its local plan,
+    And the progress of the plan depends on the success of each skill,
+    Then it should be informed whether the simulation was successful.
 
-Cenário: Falha
-    Dado que o robô possui diferentes skills em seu plano local,
-    E o avanço do plano depende do sucesso de cada skill,
-    Então deve ser informado em qual skill do robô houve falha
+@javascript
+Scenario: Failure
+    Given that the robot has different skills in its local plan,
+    And the progress of the plan depends on the success of each skill,
+    Then it must be informed which of the robot's skills failed.
 
-Cenário: Observação do tempo na execução do teste
-    Dado que o usuário analisa os logs de execução do teste,
-    E observa o campo de registro de tempo em cada entrada de log,
-    Então o usuário observa, além do sucesso e falha, em que momento uma skill é alterada.
+@javascript
+Scenario: Observation of test execution time
+    Given that the user analyzes the test execution logs,
+    And observes the time stamp field in each log entry,
+    Then the user observes, in addition to success and failure, at what point a skill is changed.
 
-Cenário: Visualizar skills sem executar simulação
-    Dado que o usuário tenta acessar a visualização de skills sem executar a simulação,
-    Então a interface fornece uma mensagem de erro.
+@javascript
+Scenario: Viewing skills without running a simulation
+    Given that the user tries to access the skills view without running the simulation,
+    Then the interface gives an error message.
 
-Cenário: Robô sem skills 
-    Dado que um robô é selecionado para visualização de dados de skills,
-    E este robô não possui skills atribuídas,
-    Então a interface deve indicar que não há skills disponíveis para o robô.
+@javascript
+Scenario: Robot without skills 
+    Given that a robot is selected for skills data visualization,
+    And this robot has no skills assigned,
+    Then the interface should indicate that there are no skills available for the robot.
 
-Cenário: Campos das skills não preenchidos corretamente
-    Dado que um robô possui um plano local associado,
-    E o plano local contém informações incorretas ou campos de skills mal preenchidos,
-    Quando o usuário executa um teste com esse robô,
-    E a interface deve detectar os erros nos campos de skills,
-    Então impedir/interromper a execução do teste.
+@javascript
+Scenario: Skills fields not filled in correctly
+    Given that a robot has an associated local plan,
+    And the local plan contains incorrect information or skill fields that are not filled in correctly,
+    When the user runs a test with this robot,
+    And the interface should detect the errors in the skills fields,
+    Then prevent/interrupt the test run.
 
-Cenário: Navigation
-    Dado que há um plano local com a skill "navigation",
-    E o campo "parameter" está preenchido com a room e os waypoints de destino,
-    E o campo "skill", dentro do campo "local_plan", deve ser preenchido com "navigation"
-    Então o robô deve navegar em direção ao local.
+@javascript
+Scenario: Navigation
+    Given that there is a local plan with the "navigation" skill,
+    And the "parameter" field is filled in with the room and the destination waypoints,
+    And the "skill" field, within the "local_plan" field, must be filled in with "navigation"
+    Then the robot must navigate towards the location.
 
-Cenário: Approach Person
-    Dado que o robô usou "navigation",
-    E quer se locomover em direção a alguém,
-    E o campo "skill" no "local_plan" deve ser preenchido com "approach_person",
-    E o campo "parameter" deve conter "topic" com a pessoa destino,
-    Então o robô deve se aproximar da pessoa destino.
+@javascript
+Scenario: Approach Person
+    Given that the robot has used "navigation",
+    And it wants to move towards someone,
+    And the "skill" field in "local_plan" should be filled in with "approach_person",
+    And the "parameter" field should contain "topic" with the target person,
+    Then the robot should approach the target person.
 
-Cenário: Authenticate Person
-    Dado que o robô usou "approach_person",
-    E foi de encontro a uma pessoa,
-    E deve autenticar a pessoa em questão,
-    E o campo "skill" no "local_plan" deve ser preenchido com "authenticate_person",
-    E o campo "parameter" deve conter "topic" com a pessoa a ser autenticada,
-    Então a pessoa deve ser autenticada.
+@javascript
+Scenario: Authenticate Person
+    Given that the robot has used "approach_person",
+    And went to meet a person,
+    And it must authenticate the person in question,
+    And the "skill" field in the "local_plan" must be filled in with "authenticate_person",
+    And the "parameter" field must contain "topic" with the person to be authenticated,
+    Then the person must be authenticated.
 
-Cenário: Approach Robot
-    Dado que o robô deve se aproximar de um objeto,
-    E o campo "skill" no "local_plan" deve ser preenchido com "approach_robot",
-    E o campo "parameter" deve conter "topic" com o objeto de aproximação,
-    Então o robô deve se aproximar do objeto.
+@javascript
+Scenario: Approach Robot
+    Given that the robot must approach an object,
+    And the "skill" field in the "local_plan" should be filled with "approach_robot",
+    And the "parameter" field must contain "topic" with the approach object,
+    Then the robot must approach the object.
 
-Cenário: Operate Drawer
-    Dado que o robô usou "authenticate_person",
-    E deve realizar uma ação sobre a pessoa,
-    E o campo "skill" no "local_plan" deve ser preenchido com "operate_drawer",
-    Então o campo "parameter" deve conter "action" com "open".
+@javascript
+Scenario: Operate Drawer
+    Given that the robot used "authenticate_person",
+    And it must perform an action on the person,
+    And the "skill" field in the "local_plan" should be filled with "operate_drawer",
+    Then the "parameter" field must contain "action" with "open".
 
-Cenário: Wait Message
-    Dado que o robô usou "operate_drawer",
-    E o status da mensagem deve, em caso de sucesso, ser recebida,
-    Então Operate Drawer deve conter "action" com "close".
+@javascript
+Scenario: Wait Message
+    Given that the robot used "operate_drawer",
+    And the status of the message should, if successful, be received,
+    Then Operate Drawer must contain "action" with "close".
 
-Cenário: Send Message
-    Dado que há plano local,
-    E que o robô usou "operate_drawer",
-    E deve enviar uma mensagem à pessoa em questão,
-    E o campo "skill" no "local_plan" deve ser preenchido com "send_message",
-    E o campo "parameter" deve conter "topic" com a pessoa destinatária da mensagem,
-    Então a pessoa deve receber a mensagem.
+@javascript
+Scenario: Send Message
+    Given that there is a local plan,
+    And that the robot has used "operate_drawer",
+    And it must send a message to the person in question,
+    And the "skill" field in "local_plan" must be filled in with "send_message",
+    And the "parameter" field must contain "topic" with the person to whom the message is addressed,
+    Then the person must receive the message.
 
-- Exemplo de Erros nos campos de Skills:
-. A skill de navegação possui waypoints ausentes ou inválidos.
-. O parâmetro "topic" para a skill "approach_person" não está definido.
-. A ação para a skill "operate_drawer" não especifica se é para abrir ou fechar a gaveta.
-. Falta informação essencial em uma ou mais skills do plano local.
+# - Example of errors in the Skills fields:
+# . The navigation skill has missing or invalid waypoints.
+# . The "topic" parameter for the "approach_person" skill is not set.
+# . The action for the "operate_drawer" skill does not specify whether it is to open or close the drawer.
+# . One or more skills in the local plan are missing essential information.
