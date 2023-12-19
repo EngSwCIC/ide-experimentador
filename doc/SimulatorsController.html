@@ -61,7 +61,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link">ApplicationController
 </div>
 
     
@@ -92,6 +92,8 @@
 
   <section class="description">
     
+<p>Controladora de simuladores Neste arquivo estão definidos os métodos de CRUD de simuladores, além disso, há um método para ativar/desativar um simulador. A ideia é que o usuário possa configurar o ambiente de simulação de acordo com suas necessidades. A ideia é é futuramente transformar essa controladora em uma API para retornar jsons em resposta às requisições do front-end.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -115,18 +117,32 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Cria um simulador</p>
+</li><li>
+<p>Os argumentos são passados via params. O argumento é o nome do simulador.</p>
+</li><li>
+<p>Se o simulador for criado com sucesso, redireciona para a página de simuladores e exibe uma mensagem de sucesso.</p>
+</li></ol>
+
+<p>Caso contrário, renderiza a página de criação de simuladores e exibe uma mensagem de erro.</p>
+<ol style="list-style-type: lower-alpha"><li>
+<p>O método create é chamado quando o usuário clica no botão de criar simulador na página de criação de simuladores.</p>
+</li></ol>
+
+<p>Este método é responsável por criar o simulador no banco de dados.</p>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 30</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
-  <span class="ruby-comment"># Criação de simulador</span>
+
+
   <span class="ruby-ivar">@simulator</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">name:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:simulator</span>][<span class="ruby-value">:name</span>], <span class="ruby-value">disabled:</span><span class="ruby-keyword">true</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@simulator</span>.<span class="ruby-identifier">save</span>
-    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Simulador adicionado com sucesso!&quot;</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">simulators_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Simulador adicionado com sucesso!&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">simulators_url</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Simulador criado com sucesso!&quot;</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Simulador com erro&quot;</span>
+    <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Erro ao cadastrar simulador!&quot;</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -146,15 +162,30 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Deleta um simulador</p>
+</li><li>
+<p>Os argumentos são passados via params. O argumento é o id do simulador.</p>
+</li><li>
+<p>Se o simulador for deletado com sucesso, redireciona para a página de simuladores e exibe uma mensagem de sucesso.</p>
+</li></ol>
+
+<p>Caso contrário, renderiza a página de simuladores e exibe uma mensagem de erro.</p>
+<ol style="list-style-type: lower-alpha"><li>
+<p>O método delete é chamado quando o usuário clica no botão de deletar simulador na página de simuladores.</p>
+</li></ol>
+
+<p>Este método é responsável por deletar o simulador no banco de dados.</p>
 
           <div class="method-source-code" id="delete-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>
-  <span class="ruby-comment"># Botão de deletar simulador</span>
   <span class="ruby-ivar">@simulator</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@simulator</span>.<span class="ruby-identifier">delete</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">simulators_path</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Simulador deletado com sucesso!&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">simulators_url</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Erro ao deletar simulador!&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -173,15 +204,30 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Deleta um simulador</p>
+</li><li>
+<p>Os argumentos são passados via params. O argumento é o id do simulador.</p>
+</li><li>
+<p>Se o simulador for deletado com sucesso, redireciona para a página de simuladores e exibe uma mensagem de sucesso.</p>
+</li></ol>
+
+<p>Caso contrário, renderiza a página de simuladores e exibe uma mensagem de erro.</p>
+<ol style="list-style-type: lower-alpha"><li>
+<p>O método destroy é chamado quando o usuário clica no botão de deletar simulador na página de simuladores.</p>
+</li></ol>
+
+<p>Este método é responsável por deletar o simulador no banco de dados.</p>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
-  <span class="ruby-comment"># Botão de deletar simulador</span>
   <span class="ruby-ivar">@simulator</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@simulator</span>.<span class="ruby-identifier">destroy</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">simulators_path</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Simulador deletado com sucesso!&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Erro ao deletar simulador!&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -200,12 +246,20 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Renderiza a página de simuladores</p>
+</li><li>
+<p>Não há argumentos</p>
+</li><li>
+<p>O método apenas renderiza todos os simuladores cadastrados no banco de dados.</p>
+</li><li>
+<p>Os registros de simuladores são buscados por meio do método all da classe Simulator. Não há alterações no banco de dados.</p>
+</li></ol>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
-  <span class="ruby-ivar">@simulators</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">all</span> <span class="ruby-comment"># página que lista todos os simuladores</span>
+  <span class="ruby-ivar">@simulators</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -223,12 +277,19 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Renderiza a página de criação de simuladores</p>
+</li><li>
+<p>Não há argumentos</p>
+</li><li>
+<p>O método cria uma nova instância de simulador e renderiza a página de criação de simuladores.</p>
+</li><li>
+<p>O método não tem efeitos colaterais.</p>
+</li></ol>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
-  <span class="ruby-comment"># Página de criação de simulador</span>
   <span class="ruby-ivar">@simulator</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -248,12 +309,23 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Renderiza a lista de experimentos relacionados ao simulador</p>
+</li><li>
+<p>Os argumentos são passados via params. O argumento é o id do simulador.</p>
+</li><li>
+<p>O método encontra todos os experimentos relacionados a determinado simulador por meio da tabela de relacionamento</p>
+</li></ol>
+
+<p>entre simuladores e experimentos. O método retorna uma lista de experimentos.</p>
+<ol style="list-style-type: lower-alpha"><li>
+<p>O método não tem efeitos colaterais.</p>
+</li></ol>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 50</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 112</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-  <span class="ruby-comment"># Página de visualização de experimentos relacionados a um simulador</span>
+
   <span class="ruby-identifier">id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
   <span class="ruby-identifier">teste</span> = <span class="ruby-constant">SimulatorExperiment</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-ivar">@simulator</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>=<span class="ruby-identifier">id</span>)
@@ -276,12 +348,19 @@
         </div>
 
         <div class="method-description">
-          
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Ativa/desativa um simulador</p>
+</li><li>
+<p>Os argumentos são passados via params. O argumento é o id do simulador.</p>
+</li><li>
+<p>Se o simulador for ativado/desativado com sucesso, redireciona para a página de simuladores.</p>
+</li><li>
+<p>O método toggle chama o update! da classe Simulator. Este método é responsável por atualizar o simulador no banco de dados.</p>
+</li></ol>
 
           <div class="method-source-code" id="toggle-source">
-            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/simulators_controller.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">toggle</span>
-  <span class="ruby-comment"># Botão de ativar/desativar simulador</span>
   <span class="ruby-ivar">@simulator</span> = <span class="ruby-constant">Simulator</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@simulator</span>.<span class="ruby-identifier">disabled?</span>
     <span class="ruby-ivar">@simulator</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-value">disabled:</span> <span class="ruby-keyword">false</span>)
