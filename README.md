@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Grupo 8 composto por:
+Alexandre Junqueira (211068225)
+Daniel Monteiro (202006608)
+Felipe Core (211055245)
+Jean Karia (211055290)
 
-Things you may want to cover:
+Que ficou responsavel pela 
+Issue 12: 
+Dado que sou um usuario, quero visualizar os experimentos cadastrados, podendo filtrá-los.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+As features ficaram dividas da seguinte forma:
+Alexandre - Sidebar, Butões, filtros, Front-end;
+Daniel - Testes de caso & cucumber;
+Felipe - Testes Rspec;
+Jean - Controlers, Frond-end;
