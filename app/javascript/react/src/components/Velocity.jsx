@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 const Velocity = () => {
-    let [req, setReq] = useState("")
+  let url = window.location.href  
+  let [req, setReq] = useState("")
 
-  useEffect(() => {fetch(`/velocity/getData/${0}`).then(async res=>{
+  useEffect(() => {fetch(`/velocity/getData/${url[url.length-1]}`).then(async res=>{
     const parse = await res.json()
     return parse
     }).then(res=>setReq(res))
   }, [])
 
-  //console.log(window.location.href)
+  
   if (Object.keys(req).length == 0) {
       return (
         <div>
