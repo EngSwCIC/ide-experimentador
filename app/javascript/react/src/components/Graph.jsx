@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { LineChart, Line, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styles from './Graph.module.css'
 
 function Graph(){                                   
@@ -129,7 +129,7 @@ const Component = ({ req }) => {
               <p>Experiment failed at {item.time} seconds: {item.message}</p>
             </div>
           ))
-          ) : semRepLista.length === 1 ? (
+          ) : semRepLista.length <= 1 ? (
             <p>Experimento sem ações!</p>
         ) : (
           <p>Sucesso!</p>
