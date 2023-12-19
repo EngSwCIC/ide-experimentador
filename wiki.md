@@ -4,6 +4,8 @@
 - BDD utilizando cucumber.
 - Testes utilizando Selenium + Capybara.
 - Documentação com RDOC.
+- Estilização usando Tailwind
+
 ## BDD utilizando cucumber
 ```bash
 bundle exec cucumber
@@ -24,4 +26,9 @@ rspec spec
 ## Testes utilizando Selenium + Capybara
 ```bash
 rails test:system
+```
+
+## Rodar usando Tailwind
+```bash
+./bin/dev
 ```
