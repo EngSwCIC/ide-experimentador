@@ -10,7 +10,8 @@ const Velocity = () => {
     }).then(res=>setReq(res))
   }, [])
 
-    if (Object.keys(req).length == 0) {
+  //console.log(window.location.href)
+  if (Object.keys(req).length == 0) {
       return (
         <div>
           <h1>Erro</h1>
@@ -18,6 +19,7 @@ const Velocity = () => {
       )
 
     } else {
+      
       var lista = []
       Object.keys(req).forEach(function(key){
           lista.push({"x": key, "y": req[key]})
