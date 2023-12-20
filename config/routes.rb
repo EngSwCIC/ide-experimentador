@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   get 'simulators/new', to: 'simulators#new', as: 'new_simulator'
   get 'simulators/:id', to:'simulators#show'
   get 'hello/world'
+  delete 'simulators/:id', to: 'simulators#destroy', as: 'destroy_simulator'
+
   resources :simulators do
     member do
-      get 'toggle', to: 'simulators#toggle'
-      get 'delete', to: 'simulators#destroy'
+      put 'toggle', to: 'simulators#toggle'
     end
   end
 

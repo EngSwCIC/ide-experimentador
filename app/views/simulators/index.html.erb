@@ -34,13 +34,15 @@
       <h5 class="border-b-2 border-neutral-100 px-6 py-3 text-xl font-medium leading-tight dark:border-neutral-600"><%= simulator.name %></h5>
       <a id='ver-experimentos' href="/simulators/<%= simulator.id %>">Ver Experimentos</a>
       <% if simulator.disabled %>
-        <p class="button text-red-500"><%= link_to "Desativado",toggle_simulator_path(simulator), method: :put %></p>
+      <p>
+        <%= button_to "Desativado", toggle_simulator_path(simulator), method: :put, class: "button text-red-500" %></p>
 </label>
       <% else %>
-        <p class="button text-green-500"><%= link_to "Ativado", toggle_simulator_path(simulator), method: :put %></p>
+      <p>
+        <%= button_to "Ativado", toggle_simulator_path(simulator), method: :put, class: "button text-green-500" %></p>
 </label>
       <% end %>
-      <%= link_to "Deletar Simulador", delete_simulator_path(simulator), method: :delete%>
+      <%= button_to "Deletar Simulador", destroy_simulator_path(simulator), method: :delete %>
     </div>
   </div>
 

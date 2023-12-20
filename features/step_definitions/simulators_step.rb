@@ -2,12 +2,8 @@ Given 'that I am on the settings page' do
     visit simulators_path
 end
 
-Then 'I should see "Configuração do Ambiente"' do
-    assert_selector "h1", text: "Configuração do Ambiente"
-end
-
-When 'I click on the "Criar Simulador" button' do
-    click_on "Criar Simulador"
+Then ('I should see {string} on h1') do |string|
+    assert_selector "h1", text: string
 end
 
 And('add {string}') do |string|
@@ -18,39 +14,19 @@ And 'click "Registrar"' do
     click_on "Registrar"
 end
 
-Then 'I should see "Simulador criado com sucesso!" on the screen' do
-    assert_selector "div", text: "Simulador criado com sucesso!"
+Then ('I should see {string} on div') do |string|
+    assert_selector "div", text: string
 end
 
-When 'I click on the "Deletar Simulador" button' do 
-    click_on "Deletar Simulador", match: :first
-end
-
-Then 'I should see "Simulador deletado com sucesso!"' do
-    assert_selector "div", text: "Simulador deletado com sucesso!"
-end
-
-When 'I click on the "Ver Experimentos" button' do
-    click_on "Ver Experimentos", match: :first
-end
-
-Then 'I should see "Experimentos do simulator" on the screen' do
-    assert_selector "h1", text: "Experimentos do simulator"
-end
-
-When 'I click on the "Desativado" button' do
-    click_on "Desativado", match: :first
+When ('I click on the {string} button') do |string|
+    click_on string, match: :first
 end
 
 Then 'I should see "Ativado" on the screen' do
-    assert_selector "p", text: "Ativado"
-end
-
-When 'I click on the "Ativado" button' do
-    click_on "Ativado", match: :first
+    assert_selector "button", text: "Ativado"
 end
 
 Then 'I should see "Desativado" on the screen' do
-    assert_selector "p", text: "Desativado"
+    assert_selector "button", text: "Desativado"
 end
 

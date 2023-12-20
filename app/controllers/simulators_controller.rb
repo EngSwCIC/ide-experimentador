@@ -29,11 +29,10 @@ class SimulatorsController < ApplicationController
     @simulator = Simulator.find(params[:id])
     if @simulator.disabled?
       @simulator.update!(disabled: false)
-      redirect_to simulators_path
     else
       @simulator.update!(disabled: true)
-      redirect_to simulators_path
     end
+    redirect_to simulators_path
   end
 
   ##
@@ -55,13 +54,17 @@ class SimulatorsController < ApplicationController
   # Este método é responsável por deletar o simulador no banco de dados.
   ##
   def destroy
-    @simulator = Simulator.find(params[:id])
-    if @simulator.destroy
-      redirect_to simulators_path
-      flash[:success] = "Simulador deletado com sucesso!"
+    # Botão de deletar simulador
+    id = params[:id]
+    if Simulator.find_by_id id
+      @simulator = Simulator.find(id)
+      if @simulator.destroy
+        flash[:success] = "Simulador deletado com sucesso!"
+      end
     else
-      flash.now[:error] = "Erro ao deletar simulador!"
+      flash[:error] = "Erro ao deletar simulador!"
     end
+    redirect_to simulators_path
   end
 
   ##
@@ -76,11 +79,11 @@ class SimulatorsController < ApplicationController
 
 
     @simulator = Simulator.create(name: params[:simulator][:name], disabled:true)
-    if @simulator.save
+    if @simulator.name != "" and @simulator.save
       redirect_to simulators_url
       flash[:success] = "Simulador criado com sucesso!"
     else
-      flash.now[:error] = "Erro ao cadastrar simulador!"
+      flash[:error] = "Erro ao cadastrar simulador!"
       render :new
     end
   end
@@ -112,7 +115,6 @@ class SimulatorsController < ApplicationController
   def show
 
     id = params[:id]
-    teste = SimulatorExperiment.all
     @simulator = Simulator.find(id=id)
     all_experiments = SimulatorExperiment.where(simulator_id:id)
     @experiments = all_experiments.map { |exp| Experiment.find(exp.experiment_id) }

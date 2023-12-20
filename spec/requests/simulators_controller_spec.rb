@@ -18,6 +18,11 @@ RSpec.describe SimulatorsController, type: :controller do
       expect(simulator.disabled).to be(true)
       expect(response).to redirect_to(simulators_path)
     end
+
+    it 'deleting simulator (sad path)' do
+      delete :destroy, params: { id: 0}
+      expect(flash[:error]).to eq("Erro ao deletar simulador!")
+    end
   end
 end
 
