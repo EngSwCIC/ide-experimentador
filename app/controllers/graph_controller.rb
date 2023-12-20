@@ -1,9 +1,9 @@
 require 'json'
 
 class GraphController < ApplicationController
-    def jsonGet
+    def skillsGet
         test_id = params[:id]   # pega id da url referente ao log
-        @trials = TrialExecution.find_by(test_id)
+        @trials = TrialExecution.find_by(id: test_id)
         
         started = false                 # boolean pra controle de quando começa o experimento
         finished = false                # boolean pra controle de quando termina o experimento
@@ -166,8 +166,11 @@ class GraphController < ApplicationController
             end
         end
 
-        jsonString = JSON.generate(json_data)
-        render json: jsonString
+        if @trials
+            jsonString = JSON.generate(json_data)
+            render json: jsonString
+        end
 
     end
+
 end

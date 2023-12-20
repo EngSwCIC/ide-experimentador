@@ -47,7 +47,7 @@ trialExecution = TrialExecution.create(
     }
 )
 
-trial = TrialExecution.find_by(id: 12)
+trial = TrialExecution.all
 
 puts trial.inspect
 
