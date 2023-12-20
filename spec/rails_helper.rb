@@ -17,7 +17,6 @@ SimpleCov.start do
   add_group 'Specs', 'spec'
 end
 
-
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production

@@ -3,7 +3,7 @@ require 'rails_helper.rb'
 RSpec.describe "VelocityController", type: :request do
   describe "GET velocity#getData" do
     it "Acessa velocity/getData/:id" do
-      get velocity_getData_path
+      get '/velocity/getData/1'
       expect(response).to have_http_status(200)
     end
   end
@@ -57,7 +57,7 @@ RSpec.describe "VelocityController", type: :request do
     210.01, [INFO], robot4, {'battery-level': '12.06'}, None, None".split(';') } 
 
     before do
-      allow(File).to receive(:open).and_yield(StringIO.new(file_content))
+      allow(File).to receive(:open).and_yield(StringIO.new(file_content.join("\n")))
     end
     
     it 'Resposta correta' do
@@ -65,6 +65,7 @@ RSpec.describe "VelocityController", type: :request do
       expect(response).to have_http_status(:success)
       parsed_response = JSON.parse(response.body)
       
-      expect(parsed_response).to eq([{"message" => "Experiment started!"},{"time" => 10.01,"message" => "Navigation to room"},{"time" => 10.01,"message" => "Navigation to room"},{"time" => 20.07,"message" => "Navigation to room"},{"time" => 20.07,"message" => "Navigation to room"},{"time" => 30.03,"message" => "Navigation to room"},{"time" => 30.03,"message" => "Navigation to room"},{"time" => "37.37","message" => "Sending message to nurse"},{"time" => "37.37","message" => "Waiting the message get to nurse"},{"time" => "37.37","message" => "Message sent to nurse"},{"time" => 40.04,"message" => "Navigation to lab"},{"time" => 40.04,"message" => "Navigation to lab"},{"time" => 50.0,"message" => "Navigation to lab"},{"time" => 50.0,"message" => "Navigation to lab"},{"time" => 60.09,"message" => "Navigation to lab"},{"time" => 60.09,"message" => "Navigation to lab"},{"time" => 70.02,"message" => "Navigation to lab"},{"time" => 70.02,"message" => "Navigation to lab"},{"time" => 80.03,"message" => "Navigation to lab"},{"time" => 80.03,"message" => "Navigation to lab"},{"time" => "80.86","message" => "Message sent to lab_arm"},{"time" => "81.78","message" => "Experiment completed successfully with 81.78 seconds!"}])
+      expect(parsed_response).to eq("19.99" => 0.17339667773468448,"30.01" => 0.21223431909464818,"39.97" => 0.21343015392853468,"50.01" => 0.21085657370517905,"60.02" => 0.21261616478365847,"69.98" => 0.21205677332189088,"79.99" => 0.21254170619499257,"90.02" => 0.2042792557843504,"100.01" =>  0.19696161799713408,"109.99" => 0.1463533104811412,"120.0" => 0.11508079586645197,"130.0" => 0.14215913618195625,"140.02" => 0.007530136874106592,"149.98" => 0.10087538816778391,"160.01" => 0.024344991154787752,"170.01" => 0.015786703265723092,"180.0" => 0.014193403536685849,"190.01" => 0.029650814141785335,"200.02" => 0.017387496875047776,"210.01" => 0.032560702364623904)
     end
   end
+end
