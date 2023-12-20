@@ -8,54 +8,47 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-experimentos = Experiment.create([ name: "teste", disabled: false ])
-trial = Trial.create([name: "teste", disabled: false, deleted: false, runs: 20, experiment_id: experimentos.first.id])
-trial_executions = TrialExecution.create(status: "bom", log:"10.02, [INFO], robot4, {'battery-level': '17.26'}, None, None
-10.02, [INFO], robot4, {'y': 34.57, 'x': -38.121, 'yaw': -3.142}, None, None
-19.99, [INFO], robot4, {'battery-level': '17.00'}, None, None
-19.99, [INFO], robot4, {'y': 33.238, 'x': -37.019, 'yaw': 3.141}, None, None
-30.01, [INFO], robot4, {'battery-level': '16.74'}, None, None
-30.01, [INFO], robot4, {'y': 31.112, 'x': -37.069, 'yaw': 3.141}, None, None
-39.97, [INFO], robot4, {'y': 28.987, 'x': -37.012, 'yaw': 3.14}, None, None
-39.97, [INFO], robot4, {'battery-level': '16.48'}, None, None
-49.98, [INFO], robot4, {'battery-level': '16.22'}, None, None
-50.01, [INFO], robot4, {'y': 26.87, 'x': -37.012, 'yaw': 3.142}, None, None
-60.02, [INFO], robot4, {'battery-level': '15.96'}, None, None
-60.02, [INFO], robot4, {'y': 24.742, 'x': -37.047, 'yaw': 3.142}, None, None
-69.98, [INFO], robot4, {'y': 22.63, 'x': -37.066, 'yaw': 3.141}, None, None
-70.00, [INFO], robot4, {'battery-level': '15.70'}, None, None
-79.99, [INFO], robot4, {'battery-level': '15.44'}, None, None
-79.99, [INFO], robot4, {'y': 20.504, 'x': -37.147, 'yaw': 3.142}, None, None
-90.02, [INFO], robot4, {'y': 18.53, 'x': -36.598, 'yaw': 3.141}, None, None
-90.02, [INFO], robot4, {'battery-level': '15.18'}, None, None
-100.01, [INFO], robot4, {'battery-level': '14.92'}, None, None
-100.01, [INFO], robot4, {'y': 17.763, 'x': -34.786, 'yaw': -3.142}, None, None
-109.99, [INFO], robot4, {'y': 18.934, 'x': -33.913, 'yaw': 3.142}, None, None
-109.99, [INFO], robot4, {'battery-level': '14.66'}, None, None
-113.74, [info], nurse, sync, received-request, (status=sending-request)
-113.74, [info], nurse, sync, request-sent, (status=waiting)
-113.75, [info], nurse, sync, wait-message, (status=message-received)
-120.00, [INFO], robot4, {'y': 18.079, 'x': -34.685, 'yaw': -3.142}, None, None
-120.00, [INFO], robot4, {'battery-level': '14.40'}, None, None
-129.99, [INFO], robot4, {'battery-level': '14.14'}, None, None
-130.00, [INFO], robot4, {'y': 18.038, 'x': -36.106, 'yaw': -3.142}, None, None
-140.02, [INFO], robot4, {'battery-level': '13.88'}, None, None
-140.02, [INFO], robot4, {'y': 18.081, 'x': -36.168, 'yaw': 3.142}, None, None
-149.98, [INFO], robot4, {'y': 17.575, 'x': -37.036, 'yaw': 3.142}, None, None
-149.98, [INFO], robot4, {'battery-level': '13.62'}, None, None
-160.01, [INFO], robot4, {'y': 17.345, 'x': -36.954, 'yaw': -3.141}, None, None
-160.01, [INFO], robot4, {'battery-level': '13.36'}, None, None
-170.01, [INFO], robot4, {'y': 17.274, 'x': -37.095, 'yaw': -3.141}, None, None
-170.01, [INFO], robot4, {'battery-level': '13.10'}, None, None
-179.97, [INFO], robot4, {'battery-level': '12.84'}, None, None
-180.00, [INFO], robot4, {'y': 17.402, 'x': -37.034, 'yaw': -3.142}, None, None
-190.01, [INFO], robot4, {'y': 17.205, 'x': -36.812, 'yaw': -3.141}, None, None
-190.01, [INFO], robot4, {'battery-level': '12.58'}, None, None
-200.02, [INFO], robot4, {'battery-level': '12.32'}, None, None
-200.02, [INFO], robot4, {'y': 17.363, 'x': -36.885, 'yaw': 3.142}, None, None
-210.01, [INFO], robot4, {'y': 17.131, 'x': -37.113, 'yaw': 3.142}, None, None
-210.01, [INFO], robot4, {'battery-level': '12.06'}, None, None", trial_id: trial.first.id) 
+#TrialExecution.delete_all
+trialExecution = TrialExecution.create(
+    {   
+        log: "0.00, [DEBUG], nurse, NURSE_CONFIG={'location': 'PC Room 3', 'position': [-28.5, 18.0, -1.57]}, None, None
+        0.00, [INFO], robot2, {'battery-level': '63.50'}, None, None
+        0.11, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.634952869577942, 'battery_discharge_rate': 0.00054, 'id': 2, 'local_plan': [['navigation', ['PC Room 3', [[-21.0, 18.0, -1.57], [-21.0, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 5', 'name': 'r2', 'position': [-21.0, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+        0.11, [DEBUG], logger, Simulation open, None, None
+        10.07, [INFO], robot2, {'y': 17.977, 'x': -20.956, 'yaw': -3.141}, None, None
+        10.07, [INFO], robot2, {'battery-level': '63.01'}, None, None
+        20.01, [INFO], robot2, {'battery-level': '62.47'}, None, None
+        20.01, [INFO], robot2, {'y': 16.197, 'x': -21.448, 'yaw': 3.141}, None, None
+        30.05, [INFO], robot2, {'battery-level': '61.93'}, None, None
+        30.05, [INFO], robot2, {'y': 16.101, 'x': -23.573, 'yaw': 3.141}, None, None
+        40.01, [INFO], robot2, {'battery-level': '61.39'}, None, None
+        40.01, [INFO], robot2, {'y': 16.087, 'x': -25.671, 'yaw': 3.141}, None, None
+        50.01, [INFO], robot2, {'battery-level': '60.85'}, None, None
+        50.01, [INFO], robot2, {'y': 16.095, 'x': -27.778, 'yaw': -3.139}, None, None
+        60.06, [INFO], robot2, {'battery-level': '60.31'}, None, None
+        60.06, [INFO], robot2, {'y': 17.701, 'x': -28.627, 'yaw': 3.142}, None, None
+        70.02, [INFO], robot2, {'battery-level': '59.77'}, None, None
+        70.02, [INFO], robot2, {'y': 17.975, 'x': -28.622, 'yaw': -3.142}, None, None
+        73.92, [info], nurse, sync, received-request, (status=sending-request)
+        73.92, [info], nurse, sync, request-sent, (status=waiting)
+        73.92, [info], nurse, sync, wait-message, (status=message-received)
+        80.03, [INFO], robot2, {'battery-level': '59.23'}, None, None
+        80.03, [INFO], robot2, {'y': 16.913, 'x': -28.699, 'yaw': 3.139}, None, None
+        89.94, [INFO], robot2, {'battery-level': '58.69'}, None, None
+        90.03, [INFO], robot2, {'y': 16.168, 'x': -27.158, 'yaw': 3.142}, None, None
+        100.05, [INFO], robot2, {'y': 14.855, 'x': -25.881, 'yaw': -3.142}, None, None
+        100.05, [INFO], robot2, {'battery-level': '58.15'}, None, None
+        110.03, [INFO], robot2, {'battery-level': '57.61'}, None, None
+        110.03, [INFO], robot2, {'y': 13.027, 'x': -25.904, 'yaw': 3.141}, None, None
+        118.29, [info], lab_arm, sync, wait-message, (status=message-received)
+        119.17, [WARN], robot2, SUCCESS, None, None", 
+        status: "em execução", 
+        trial: Trial.find(1)
+    }
+)
+
+trial = TrialExecution.find_by(id: 12)
+
+puts trial.inspect
 
 
-x = TrialExecution.where(id: 1)
-puts x

@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styles from './Graph.module.css'
 
-function Graph(){                                   
+const Graph = ({props}) => {
+  console.log(props)                             
   let [req, setReq] = useState("")
   useEffect(() => {
-    fetch("/graph/skillsGet").then(async res=>{
+    fetch(`/graph/skillsGet/12`).then(async res=>{
       const parse = await res.text()
       return parse
     }).then(res=>setReq(res))
@@ -92,7 +93,6 @@ const Component = ({ req }) => {
       
     }
   })
-
 
   console.log(reqArray)
   console.log(semRepLista)
