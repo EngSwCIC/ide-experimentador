@@ -59,6 +59,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  gem 'react-rails'
 end
 
 group :test do
@@ -70,3 +71,13 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "tailwindcss-rails", "~> 2.0"
+gem 'rest-client'
+gem 'json'
+gem 'json-schema'
+
+gem "rubycritic", require: false
+gem 'simplecov', require: false, group: :test
+gem 'metric_fu-Saikuro', require: false, group: :test
+gem 'rdoc', require: false, group: :test

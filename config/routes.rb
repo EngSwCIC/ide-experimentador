@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'hello/world'
-  get 'hello/worldGet', to: "hello#index" 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
   # Defines the root path route ("/")
   # root "posts#index"
+  root "experimentos#index"
+  # config/routes.rb
+  post '/tests/start_tests', to: 'tests#start_tests'
+  get '/tests/check_status/:id', to: 'tests#check_status'
+  delete '/tests/stop_test/:id', to: 'tests#stop_test'
 end
