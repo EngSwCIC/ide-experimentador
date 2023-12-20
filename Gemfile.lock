@@ -202,6 +202,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    metric_fu-Saikuro (1.1.3)
     mime-types (3.5.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2023.1003)
@@ -391,8 +392,10 @@ DEPENDENCIES
   jsbundling-rails
   json
   json-schema
+  metric_fu-Saikuro
   puma (>= 5.0)
   rails (~> 7.1.1)
+  rdoc
   react-rails
   rest-client
   rubycritic
