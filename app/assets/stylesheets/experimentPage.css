@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+.emptyListTrials {
+  width: 100%;
+  height: 770px;
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  font-family: "Ubuntu", sans-serif;
+}
+
+.containerMenuExperiments {
+  width: 15%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.menuExperimentPage {
+  width: auto;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  text-align: justify;
+  gap: 5px;
+
+  padding: 5px;
+
+  font-size: 22px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+
+.play-button-xp-page {
+  cursor: pointer;
+}
+
+.play-activated-xp-page {
+  position: relative;
+}
+
+.batch-play-activated-xp-page {
+  position: relative;
+}
+
+.containerExperimentPage {
+  width: 100%;
+  height: auto;
+  background-color: #f3f3f3;
+  overflow-y: hidden;
+}
+
+.headerExperimentPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  height: 5%;
+  background-color: #ffffff;
+  border-style: 1px solid #f3f3f3;
+
+  font-size: 26px;
+}
+
+.title-header-experiment-page {
+  margin-left: 8px;
+
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 26px;
+}
+
+.list-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+  height: 770px;
+  margin-top: 5%;
+  margin-left: 5%;
+}

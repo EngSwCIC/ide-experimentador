@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+.card {
+  width: 452px;
+  height: 136px;
+  font-family: "Ubuntu", sans-serif;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #d9d9d9;
+  border-width: 1px;
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.card-disactivated {
+  width: 452px;
+  height: 136px;
+  font-family: "Ubuntu", sans-serif;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #d9d9d9;
+  border-width: 1px;
+  background-color: #f3f3f3;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.card-header {
+  padding-top: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 10px;
+}
+
+.test-title {
+  width: 72px;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0em;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  color: #000000;
+
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.tags {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.tag {
+  width: 56px;
+}
+
+.options {
+  display: inline-flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  align-items: center;
+  width: 83px;
+  height: 29px;
+
+  margin-left: 20%;
+  gap: 15px;
+}
+
+.dropdown-card {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+
+  list-style-type: none;
+  margin-top: 2px;
+
+  padding: 5px;
+
+  border: 1px solid #d9d9d9;
+  width: 100px;
+}
+
+.dropdown-menu > li {
+  margin: 0;
+
+  background-color: white;
+}
+
+.dropdown-menu > li:hover {
+  background-color: white;
+}
+
+.dropdown-menu > li > button {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+
+  background: #ffffff;
+  color: inherit;
+  border: 1px solid #d9d9d9;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.toggle-switch {
+  cursor: pointer;
+}
+
+.play-button {
+  cursor: pointer;
+
+  bottom: 4px;
+}
+
+.running-button {
+  margin-right: 7px;
+}
+
+/* Botão de ativar todos os testes de cards que estão ativos (não achei esse botão) */
+/* .batch-play-button {
+  cursor: pointer;
+
+  bottom: 4px;
+}
+
+.play-activated {
+  left: 2px;
+  bottom: 8px;
+}
+
+.batch-play-activated {
+  left: 2px;
+  bottom: 4px;
+} */
+
+.card-content {
+  width: 50%;
+  margin-top: 9px;
+  margin-left: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.features {
+  text-justify: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 0px;
+}
+
+.features-text {
+  font-size: 14px;
+  padding: 5px;
+  margin: 0;
+}
+
+.card-bottom {
+  width: 50%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: flex-end;
+  margin-right: 5%;
+  font-size: 14px;
+}
+
+.runs {
+  margin-right: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+}

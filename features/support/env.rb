@@ -59,16 +59,14 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 
-WINDOWS_HOST = `cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'`.strip
-CHROMEDRIVER_URL = "http://#{WINDOWS_HOST}:9515/"
-Capybara.register_driver :selenium_remote_chrome do |app|
+Capybara.register_driver :selenium_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.add_argument('--start-maximized')
+  driver = Selenium::WebDriver.for :chrome, options: options
 
   Capybara::Selenium::Driver.new(
-    app,
-    browser: :remote,
-    url: CHROMEDRIVER_URL,
+    app, 
+    browser: :chrome, 
     options: options
   )
 end
@@ -80,4 +78,4 @@ Capybara.configure do |config|
   config.server_port = '3000'
 end
 
-Capybara.javascript_driver = :selenium_remote_chrome
+Capybara.javascript_driver = :selenium_chrome
