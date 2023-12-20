@@ -143,7 +143,7 @@ const app = new Elysia()
   .get("/status/:id", ({params: {id}}) => {
     if(tests[parseInt(id)]){
       const now = Date.now()
-      if((tests[parseInt(id)].startTime-now) < tests[parseInt(id)].duration){
+      if((now-tests[parseInt(id)].startTime) < tests[parseInt(id)].duration){
         return {status: "running"}
       } else {
         const status: string = (Math.random()*100) < 90 ? "success" : "failed"
