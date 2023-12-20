@@ -83,4 +83,5 @@ end
 
 gem 'simplecov', require: false, group: :test
 
-gem 'rdoc'
+
+gem "tailwindcss-rails", "< 2.0.31"
