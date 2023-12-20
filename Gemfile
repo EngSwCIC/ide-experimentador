@@ -86,4 +86,4 @@ gem 'simplecov', require: false, group: :test
 
 gem "tailwindcss-rails", "< 2.0.31"
 
-gem "rubycritic"
+gem "rubycritic", require: false

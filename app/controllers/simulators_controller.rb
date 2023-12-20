@@ -88,23 +88,7 @@ class SimulatorsController < ApplicationController
     end
   end
 
-  ##
-  # a. Deleta um simulador
-  # b. Os argumentos são passados via params. O argumento é o id do simulador.
-  # c. Se o simulador for deletado com sucesso, redireciona para a página de simuladores e exibe uma mensagem de sucesso.
-  # Caso contrário, renderiza a página de simuladores e exibe uma mensagem de erro.
-  # d. O método delete é chamado quando o usuário clica no botão de deletar simulador na página de simuladores.
-  # Este método é responsável por deletar o simulador no banco de dados.
-  ##
-  def delete
-    @simulator = Simulator.find(params[:id])
-    if @simulator.delete
-      flash[:success] = "Simulador deletado com sucesso!"
-      redirect_to simulators_url
-    else
-      flash.now[:error] = "Erro ao deletar simulador!"
-    end
-  end
+
   ##
   # a. Renderiza a lista de experimentos relacionados ao simulador
   # b. Os argumentos são passados via params. O argumento é o id do simulador.

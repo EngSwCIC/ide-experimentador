@@ -21,5 +21,6 @@ RSpec.describe 'Simulators', type: :request do
     end
   end
 end
-#capybara test
 
+
+#capybara test
