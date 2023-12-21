@@ -114,7 +114,7 @@ RSpec.describe "GraphController", type: :request do
       expect(response).to have_http_status(:success)
       parsed_response = JSON.parse(response.body)
       
-      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => 10.03,"message" => "Navigation to room"}, {"time" => 10.03,"message" => "Navigation to room"}, {"time" => 55.48,"message" => "Experiment failed with NO-SKILL: authenticate_person."}])
+      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => 10.03,"message" => "Navigation to room"}, {"time" => 10.03,"message" => "Navigation to room"}, {"time" => "55.48","message" => "Experiment failed with NO-SKILL: authenticate_person."}])
     end
   end
 
@@ -154,7 +154,7 @@ RSpec.describe "GraphController", type: :request do
       expect(response).to have_http_status(:success)
       parsed_response = JSON.parse(response.body)
       
-      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => 68.58,"message" => "Sending message to nurse"},{"time" => 68.58,"message" => "Waiting the message get to nurse"},{"time" => 68.58,"message" => "Message sent to nurse"}])
+      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => "68.58","message" => "Sending message to nurse"},{"time" => "68.58","message" => "Waiting the message get to nurse"},{"time" => "68.58","message" => "Message sent to nurse"}])
     end
   end
 
@@ -180,7 +180,7 @@ RSpec.describe "GraphController", type: :request do
       expect(response).to have_http_status(:success)
       parsed_response = JSON.parse(response.body)
       
-      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => 10.01,"message" => "Navigation to room"},{"time" => 10.01,"message" => "Navigation to room"}, {"time" => 108.75,"message" => "Sending message to nurse"},{"time" => 108.75,"message" => "Waiting the message get to nurse"},{"time" => 108.75,"message" => "Message sent to nurse"}, {"time" => 110.04,"message" => "Navigation to lab"}, {"time" => 110.04,"message" => "Navigation to lab"}, {"time" => 210.62,"message" => "Message sent to lab_arm"}])
+      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => 10.01,"message" => "Navigation to room"},{"time" => 10.01,"message" => "Navigation to room"}, {"time" => "108.75","message" => "Sending message to nurse"},{"time" => "108.75","message" => "Waiting the message get to nurse"},{"time" => "108.75","message" => "Message sent to nurse"}, {"time" => 110.04,"message" => "Navigation to lab"}, {"time" => 110.04,"message" => "Navigation to lab"}, {"time" => "210.62","message" => "Message sent to lab_arm"}])
     end
   end
 
@@ -199,7 +199,7 @@ RSpec.describe "GraphController", type: :request do
       expect(response).to have_http_status(:success)
       parsed_response = JSON.parse(response.body)
       
-      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => 81.78,"message" => "Experiment completed successfully with 81.78 seconds!"}])
+      expect(parsed_response).to eq([{"message" => "Experiment started!"}, {"time" => "81.78","message" => "Experiment completed successfully with 81.78 seconds!"}])
     end
   end
 end
