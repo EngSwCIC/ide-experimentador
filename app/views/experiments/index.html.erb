@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Sidebar</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f4;
+    }
+
+    .sidebar {
+      width: 300px;
+      background-color: #333;
+      color: #fff;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 10px; 
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      padding: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar li:hover {
+      background-color: #555;
+    }
+
+    .container {
+      margin-left: 250px;
+      padding: 20px;
+      height: 5vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .experiment-card {
+      display: flex;
+      flex-direction: row;
+      align-self: left;
+      justify-content: space-between;
+      allign-items: center;
+      font-color: #000;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+
+    .experiment-card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .experiment-name {
+      font-size: 18px;
+      font-weight: bold;
+      font-color: #000;
+    }
+
+    .experiment-status {
+      color: #555;
+    }
+    .experiment-status {
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+
+    .experiment-status button {
+      align-items: center;
+      display: flex;
+      allign-self: right;
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .experiment-status button.pause {
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .experiment-status button.play {
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+    
+    .change-name button.change {
+      allign-self: right;
+      align-items: center;
+      display: flex;
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .search-bar {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>ExpMan</h2>
+    </div>
+    <!-- Search Bar -->
+    <input type="text" id="searchInput" class="form-control search-bar" placeholder="Search experiments...">
+    <ul>
+      <% @experiments.each do |experiment| %>
+        <div class="experiment-card">
+          <div class="experiment-name"><%= experiment.name %></div>
+          <div class="experiment-status">
+            <% if experiment.disabled %>
+              <button class="play" data-action="click->experiments toggle" data-id="<%= experiment.id %>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+              <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg></button>
+            <% else %>
+              <button class="pause" data-action="click->experiments toggle" data-id="<%= experiment.id %>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+              <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+            </svg></button>
+            <% end %>
+            <button class="change" data-action="click->experiments change" data-id="<%= experiment.id %>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+          </svg></button>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+
+  <script>
+    // JavaScript for search functionality
+    document.getElementById('searchInput').addEventListener('input', function () {
+      var searchValue = this.value.toLowerCase();
+      var experimentCards = document.querySelectorAll('.experiment-card');
+
+      experimentCards.forEach(function (card) {
+        var experimentName = card.querySelector('.experiment-name').textContent.toLowerCase();
+        var displayStyle = experimentName.includes(searchValue) ? 'flex' : 'none';
+        card.style.display = displayStyle;
+      });
+    });
+  </script>
+
+</body>
+</html>
