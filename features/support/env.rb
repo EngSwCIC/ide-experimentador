@@ -86,3 +86,4 @@ Capybara.register_driver :chrome_headless do |app|
 end
 
 Capybara.javascript_driver = :chrome_headless
+
