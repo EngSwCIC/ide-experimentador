@@ -64,13 +64,13 @@ class GraphController < ApplicationController
         
         # Identifica linha de falha ("linhaLista") e bota no json ("json_data")
         # 
-        #   1) "42.00, [WARN], robot6, NO-SKILL, authenticate_person, authenticate_nurse"
+        #   "42.00, [WARN], robot6, NO-SKILL, authenticate_person, authenticate_nurse"
         #   # => { "time" => 42.00, "message" => Experiment failed with NO-SKILL: authenticate_person!}
         #
-        #   2) "281.18, [WARN], robot5, SKILL-FAILURE, navigation, navto_room"
+        #   "281.18, [WARN], robot5, SKILL-FAILURE, navigation, navto_room"
         #   # => { "time" => 281.18, "message" => Skill navigation failed.}
         #
-        #   3) "49.07, [WARN], robot3, LOWBATT, None, None"
+        #   "49.07, [WARN], robot3, LOWBATT, None, None"
         #   # => { "time" => 49.07, "message" => Battery is low.}
         def failureLine(linhaLista, json_data)
             time = linhaLista[0]
