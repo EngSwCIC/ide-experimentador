@@ -17,8 +17,8 @@ Then("the user should see all experiments") do
 end
 
 # Scenario: User filters experiments by name
-When("the user fills the search bar with {string}") do |search_term|
-  fill_in 'searchBar', with: search_term 
+When("the user fills the search input with {string}") do |search_term|
+  fill_in 'searchInput', with: search_term 
 end
 
 # To-Do
@@ -27,7 +27,7 @@ Then("the user should see all experiments {string}") do |search_term|
 end
 
 #Scenario: User doesn't fill the search bar
-And("the user doesn't fill the fields") do
-  
+When("the user doesn't fill the fields") do
+  fill_in 'searchInput', with: "" 
 end
 

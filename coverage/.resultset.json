@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/fefe/ide-experimentador-grupo8/config/environment.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -10,7 +10,7 @@
           1
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/application.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/application.rb": {
         "lines": [
           1,
           null,
@@ -41,7 +41,7 @@
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/boot.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -49,7 +49,7 @@
           1
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/environments/test.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -121,7 +121,7 @@
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/initializers/assets.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -137,7 +137,7 @@
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/initializers/content_security_policy.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -148,38 +148,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/fefe/ide-experimentador-grupo8/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/fefe/ide-experimentador-grupo8/config/initializers/inflections.rb": {
-        "lines": [
           null,
           null,
           null,
@@ -198,7 +166,39 @@
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/initializers/permissions_policy.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -215,86 +215,32 @@
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/config/routes.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/routes.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/app/helpers/application_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/app/helpers/experiments_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/experiments_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/app/helpers/hello_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/hello_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/spec/requests/experiments_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/fefe/ide-experimentador-grupo8/spec/requests/filter_experiments_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/fefe/ide-experimentador-grupo8/app/controllers/experiments_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/fefe/ide-experimentador-grupo8/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/fefe/ide-experimentador-grupo8/spec/requests/home_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/experiments_spec.rb": {
         "lines": [
           1,
           null,
@@ -305,14 +251,70 @@
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/app/models/experiment.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/filter_experiments_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/experiments_controller.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/home_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/experiment.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/fefe/ide-experimentador-grupo8/app/models/application_record.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/application_record.rb": {
         "lines": [
           1,
           1,
@@ -320,6 +322,6 @@
         ]
       }
     },
-    "timestamp": 1703079713
+    "timestamp": 1703180105
   }
 }
