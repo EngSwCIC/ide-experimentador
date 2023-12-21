@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label } from 'recharts'
 
 const BatteryTableComponent  = () => {
-    const [dado, setDado] = useState({
-    });
-    const [display, setDisplay] = useState({
-    });
-    const [search, setSearch] = useState(['']);
+    const [dado, setDado] = useState([{status: 'string', log: 'string', trial_id: null, created_at: "string", updated_at: 'string' 
+    }]);
+    const [display, setDisplay] = useState( [{ identification: null, time: 'string', level: null },]);
+
     const [trials, setTrials] = useState(['']);
-    const [pivo, setPivo] = useState([1]);
 
     useEffect(() => {
         fetch("/logs/get_all")
@@ -64,15 +63,10 @@ const BatteryTableComponent  = () => {
         }
     }catch(error){console.log(error)}
 
-      }, [dado, pivo]); 
-
+      }, [dado]); 
 
     useEffect(() => {
-      if (search == ""){
-        setPivo(pivo * (-1))
-      }
-      else{
-        const batteryLevels = [];
+      const batteryLevels = []
         if (trials == ''){
           for (let trial_execution of dado){
             const identification = trial_execution.trial_id
@@ -83,7 +77,7 @@ const BatteryTableComponent  = () => {
           
             for (let line of logLines) {
               const match = line.match(batteryLevelRegex);
-              if (match && match[1] == search) {
+              if (match) {
                 const time =  match[1];
                 const levelStr = match[2];
                 const level = parseFloat(levelStr);
@@ -96,7 +90,6 @@ const BatteryTableComponent  = () => {
         }
 
         else{
-          console.log(dado)
           for (let trial_execution of dado){
             const identification = trial_execution.trial_id
             const logLines = trial_execution.log.split("\n");
@@ -106,7 +99,7 @@ const BatteryTableComponent  = () => {
 
             for (let line of logLines) {
               const match = line.match(batteryLevelRegex);
-              if (match && match[1] == search && identification == trials) {
+              if (match && identification == trials) {
                 const time =  match[1];
                 const levelStr = match[2];
                 const level = parseFloat(levelStr);
@@ -117,40 +110,47 @@ const BatteryTableComponent  = () => {
           } 
         setDisplay(batteryLevels)
         }
+    }, [trials])
+
+    try{
+    const groupedData = {};
+    display.forEach(item => {
+      if (!groupedData[item.identification]) {
+        groupedData[item.identification] = [];
       }
-    }, [search, trials])
-  
+      groupedData[item.identification].push(item);
+    })
+    setDisplay(groupedData);}catch{}
+    
+
 return (
     <div className="container_logs">
-      <h2 className="title_logs">Robot Battery Table</h2>
+      <h1>Robot Battery Graph</h1>
       <input id="trial_input" className="input_log" type="text" defaultValue={trials} placeholder="Digite o id do trial" onChange={(e) => setTrials(e.target.value)}></input>
-      <input id="battery_input" className="input_log" type="text" defaultValue={search} placeholder="Digite a palavra-chave" onChange={(e) => setSearch(e.target.value)}></input>
-        {display[0] != undefined ? (
-          display.map((data, index) => (
-            <table className="table_logs">
-              <thead>
-                <tr>
-                  <th className="itens_logs">Trial ID</th>
-                  <th className="itens_logs">Time</th>
-                  <th className="itens_logs">Battery</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr key={index}>
-                  <td className="itens_logs">{data.identification}</td>
-                  <td className="itens_logs">{data.time}</td>
-                  <td className="itens_logs">{data.level}</td>
-                </tr>
-              </tbody>
-            </table>
-          ))
-        ) : (
-          <p>Não existem dados de bateria para esse momento</p>
-        )}
-  </div>
+      {Object.keys(display).length != 0 ? (
+        Object.keys(display).map(identification => (
+        <div className="background_logs" key={identification}>
+          <h2 className="title_logs">Trial ID: {identification}</h2>
+          <LineChart width={800} height={300} data={display[identification]}>
+            <Line type="monotone" dataKey="level" stroke="#8884d8" />
+            <CartesianGrid stroke="#ccc" />
+            <XAxis dataKey="time" >
+              <Label className="label_graphX" value="Tempo" offset={-1} position="insideBottom" />
+            </XAxis>
+            <YAxis>
+              <Label className="label_graphY" angle={-90} value="Bateria" offset={20} position="insideLeft" />
+            </YAxis>
+
+          </LineChart>
+        </div>
+      ))): (
+        <p>Não existem dados de bateria</p>
+      )
+      
+      }
+    </div>
   );
-
-
 }
+
 
 export default BatteryTableComponent

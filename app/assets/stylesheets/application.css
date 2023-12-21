@@ -15,6 +15,7 @@
  */
 
 .title_logs{
+    margin-left: 50px;
     color: rgb(0, 0, 0)
 }
 
@@ -61,4 +62,9 @@
    border: #ffffff;
    font-family: 'Courier New', Courier, monospace;
    text-align: center;
+ }
+ 
+ .background_logs{
+  border-radius:  50px 50px 30px 30px;
+  background-color: white;
  }

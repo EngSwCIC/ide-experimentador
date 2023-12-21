@@ -98,8 +98,8 @@ When ('o usuario estiver na tela de visualizar nivel de bateria') do
     visit '/battery/index'
 end
 
-Given ('que o usuario clique no formulario de busca e escreva um valor fora do escopo de tempo, como {string}') do |string|
-    fill_in 'battery_input', with: string
+Given ('que o usuario clique no formulario de busca e escreva um valor fora do escopo, como {string}') do |string|
+    fill_in 'trial_input', with: string
 end
 
 
@@ -109,22 +109,17 @@ end
 
 
 Given ('que o usuario clique no formulario de busca e escreva um valor usando caracteres não numéricos, como {string}') do |string|
-    fill_in 'battery_input', with: string
+    fill_in 'trial_input', with: string
 end
 
 
-Given ('que eu solicite o status da bateria usando dados validos') do
-    fill_in 'battery_input', with: '19.99'
+Given ('que eu solicite o status da bateria de um trial valido, como {string}') do |string|
+    fill_in 'trial_input', with: string
 end
 
-Then ('eu deveria ver a porcentagem da bateria correspondente desse instante') do
-    assert_selector 'td', text: "1"
-    assert_selector 'td', text: "19.99"
+Then ('eu deveria ver a grafico da bateria correspondente') do
+    assert_selector 'svg'
 end
 
-Given ("que eu solicite o status da bateria de um trial valido usando um tempo validos") do
-    fill_in 'battery_input', with: '19.99'
-    fill_in 'trial_input', with: '1'
-end
 
 

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/dickmann/ide-experimentador/spec/controller/log_controller_spec.rb": {
+      "/home/dickmann/ide-experimentador1/spec/controller/log_controller_spec.rb": {
         "lines": [
           null,
           null,
@@ -51,7 +51,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/spec/rails_helper.rb": {
+      "/home/dickmann/ide-experimentador1/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -120,7 +120,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/config/environment.rb": {
+      "/home/dickmann/ide-experimentador1/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -129,7 +129,7 @@
           1
         ]
       },
-      "/home/dickmann/ide-experimentador/config/application.rb": {
+      "/home/dickmann/ide-experimentador1/config/application.rb": {
         "lines": [
           1,
           null,
@@ -160,7 +160,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/config/boot.rb": {
+      "/home/dickmann/ide-experimentador1/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -168,7 +168,7 @@
           1
         ]
       },
-      "/home/dickmann/ide-experimentador/config/environments/test.rb": {
+      "/home/dickmann/ide-experimentador1/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -240,7 +240,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/config/initializers/assets.rb": {
+      "/home/dickmann/ide-experimentador1/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -256,7 +256,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/config/initializers/content_security_policy.rb": {
+      "/home/dickmann/ide-experimentador1/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -267,38 +267,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/dickmann/ide-experimentador/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/dickmann/ide-experimentador/config/initializers/inflections.rb": {
-        "lines": [
           null,
           null,
           null,
@@ -317,7 +285,39 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/config/initializers/permissions_policy.rb": {
+      "/home/dickmann/ide-experimentador1/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/dickmann/ide-experimentador1/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/dickmann/ide-experimentador1/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -334,7 +334,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/config/routes.rb": {
+      "/home/dickmann/ide-experimentador1/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -353,31 +353,31 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/helpers/application_helper.rb": {
+      "/home/dickmann/ide-experimentador1/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/helpers/battery_helper.rb": {
+      "/home/dickmann/ide-experimentador1/app/helpers/battery_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/helpers/hello_helper.rb": {
+      "/home/dickmann/ide-experimentador1/app/helpers/hello_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/helpers/log_helper.rb": {
+      "/home/dickmann/ide-experimentador1/app/helpers/log_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/controllers/log_controller.rb": {
+      "/home/dickmann/ide-experimentador1/app/controllers/log_controller.rb": {
         "lines": [
           null,
           1,
@@ -414,27 +414,27 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/controllers/application_controller.rb": {
+      "/home/dickmann/ide-experimentador1/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/models/experiment.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/dickmann/ide-experimentador/app/models/application_record.rb": {
+      "/home/dickmann/ide-experimentador1/app/models/experiment.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/models/trial.rb": {
+      "/home/dickmann/ide-experimentador1/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/dickmann/ide-experimentador1/app/models/trial.rb": {
         "lines": [
           1,
           1,
@@ -444,7 +444,7 @@
           null
         ]
       },
-      "/home/dickmann/ide-experimentador/app/models/trial_execution.rb": {
+      "/home/dickmann/ide-experimentador1/app/models/trial_execution.rb": {
         "lines": [
           1,
           1,
@@ -452,6 +452,6 @@
         ]
       }
     },
-    "timestamp": 1702940924
+    "timestamp": 1703124869
   }
 }

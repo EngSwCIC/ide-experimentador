@@ -576,29 +576,51 @@
 <p>}</p>
 
 <pre>.table_logs{
-   border: 2px solid rgb(0, 0, 0);
-   width: 500px;
-   height: 200px;
-   color: rgb(0, 0, 0);
-   text-align: center;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  text-align: center;
 }
 
-.container_logs{
+.table_logs thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;</pre>
+
+<p>}</p>
+
+<p>.table_logs td {</p>
+
+<pre>background-color: white;</pre>
+
+<p>}</p>
+
+<pre>.container_logs{
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   background: rgb(255, 255, 255)
+   border-radius:  50px 50px 50px 50px;
+   background: rgb(244, 243, 232)
 }
 
 .itens_logs{
-   width: 100px;
-   border: 2px solid rgb(0, 0, 0);
+  width: 100px;
 }
 
 .input_log{
-   margin-top: 20px;
-   margin-bottom: 20px;
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px 5px 5px 5px;
+  border: #ffffff;
+  font-family: &#39;Courier New&#39;, Courier, monospace;
+  text-align: center;
 }</pre>
 
 </main>
