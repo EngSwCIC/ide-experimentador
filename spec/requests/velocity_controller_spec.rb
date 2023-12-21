@@ -10,7 +10,9 @@ RSpec.describe "VelocityController", type: :request do
 
   
   describe "GET velocity#getData" do
-    let(:file_content) {"10.02, [INFO], robot4, {'battery-level': '17.26'}, None, None;
+    Experiment.create([ name: "teste", disabled: false ])
+    Trial.create([name: "testeTrial", disabled: false, deleted: false, runs: 20, experiment_id: Experiment.first.id])
+    TrialExecution.create(status: "bom", log:"10.02, [INFO], robot4, {'battery-level': '17.26'}, None, None;
     10.02, [INFO], robot4, {'y': 34.57, 'x': -38.121, 'yaw': -3.142}, None, None;
     19.99, [INFO], robot4, {'battery-level': '17.00'}, None, None;
     19.99, [INFO], robot4, {'y': 33.238, 'x': -37.019, 'yaw': 3.141}, None, None;
@@ -54,11 +56,8 @@ RSpec.describe "VelocityController", type: :request do
     200.02, [INFO], robot4, {'battery-level': '12.32'}, None, None;
     200.02, [INFO], robot4, {'y': 17.363, 'x': -36.885, 'yaw': 3.142}, None, None;
     210.01, [INFO], robot4, {'y': 17.131, 'x': -37.113, 'yaw': 3.142}, None, None;
-    210.01, [INFO], robot4, {'battery-level': '12.06'}, None, None".split(';') } 
-
-    before do
-      allow(File).to receive(:open).and_yield(StringIO.new(file_content.join("\n")))
-    end
+    210.01, [INFO], robot4, {'battery-level': '12.06'}, None, None", trial_id: Trial.find_by(id: "1").id)
+    
     
     it 'Resposta correta' do
       get '/velocity/getData/1'
