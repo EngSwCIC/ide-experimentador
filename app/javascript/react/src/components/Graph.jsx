@@ -1,47 +1,37 @@
 import React, {useEffect, useState} from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-
-const Graph = () =>{
+const Graph = () => {
+  const pathSegments = window.location.pathname.split('/');
+  const id = pathSegments[pathSegments.length - 1]; // pegar ID do log
+  
   let [req, setReq] = useState("")
   useEffect(() => {
-    fetch("/graph/skillsGet").then(async res=>{
+    fetch(`/graph/skillsGet/${id}`).then(async res=>{
       const parse = await res.text()
       return parse
     }).then(res=>setReq(res))
   }, [])
-  
-  
-  var array = JSON.parse("[" + req + "]");
-  console.log(array)
+
 
   return (
     <div>
-      {/* <PutData props = {array}/> */} 
-    </div>
-  )
-}
-
-const PutData = (props) => {
-  /* const pathSegments = window.location.pathname.split('/');
-  const id = pathSegments[pathSegments.length - 1]; // pegar ID do log */
-  props.forEach(function(key, index){
-    console.log(key)
-  })
-  return (
-    <div>
-     
-     
-      {/* <Component req={props} ></Component>  */}
+      <Component req={req}></Component>
     </div>
   )                   
 } 
 
-const Component = ( req ) => {
+const Component = ({ req }) => {
+  try {
+    reqArray = JSON.parse(req);
+  } catch (error) {
+    console.error('Erro ao fazer parse da string JSON:', error);
+    reqArray = [];
+  }
 
   semRepLista = []
   errorList = []
-  req.forEach(function(key, index){
+  reqArray.forEach(function(key, index){
     switch (index){
     case 0: // primeira message tem que ser start
       if(key.message == 'Experiment started!'){
