@@ -47,6 +47,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
 end
 
 group :development do
@@ -62,11 +63,18 @@ group :development do
 end
 
 group :test do
-  gem 'cucumber-rails'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "cucumber-rails", require: false
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "database_cleaner"
+  gem "metric_fu-Saikuro"
+  gem "rubycritic"
+  gem 'simplecov', require: false
+  gem "rdoc"
 end
+
+gem "tailwindcss-rails", "~> 2.0"
