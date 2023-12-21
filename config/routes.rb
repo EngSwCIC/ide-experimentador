@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'hello/world'
   get 'hello/worldGet', to: "hello#index" 
-  get 'graph/skills/:id', to: "graph#skills"
-  get 'graph/skillsGet/:id', to: "graph#skillsGet"
+  get 'graph/skills', to: "graph#skills"
+  get 'graph/skillsGet', to: "graph#skillsGet"
   get 'velocity/graph/:id', to: "velocity#graph"
   get 'velocity/getData/:id', to: "velocity#getData"
 

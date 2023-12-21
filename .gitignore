@@ -41,7 +41,7 @@
 /coverage
 
 /node_modules
-
+/doc
 /logs
 
 /.idea

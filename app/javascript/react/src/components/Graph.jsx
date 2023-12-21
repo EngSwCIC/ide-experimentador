@@ -1,38 +1,47 @@
 import React, {useEffect, useState} from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import styles from './Graph.module.css'
 
-const Graph = () => {
-  const pathSegments = window.location.pathname.split('/');
-  const id = pathSegments[pathSegments.length - 1]; // pegar ID do log
-  
+
+const Graph = () =>{
   let [req, setReq] = useState("")
   useEffect(() => {
-    fetch(`/graph/skillsGet/${id}`).then(async res=>{
+    fetch("/graph/skillsGet").then(async res=>{
       const parse = await res.text()
       return parse
     }).then(res=>setReq(res))
   }, [])
-
+  
+  
+  var array = JSON.parse("[" + req + "]");
+  console.log(array)
 
   return (
     <div>
-      <Component req={req} className={styles.req}></Component>
+      {/* <PutData props = {array}/> */} 
+    </div>
+  )
+}
+
+const PutData = (props) => {
+  /* const pathSegments = window.location.pathname.split('/');
+  const id = pathSegments[pathSegments.length - 1]; // pegar ID do log */
+  props.forEach(function(key, index){
+    console.log(key)
+  })
+  return (
+    <div>
+     
+     
+      {/* <Component req={props} ></Component>  */}
     </div>
   )                   
 } 
 
-const Component = ({ req }) => {
-  try {
-    reqArray = JSON.parse(req);
-  } catch (error) {
-    console.error('Erro ao fazer parse da string JSON:', error);
-    reqArray = [];
-  }
+const Component = ( req ) => {
 
   semRepLista = []
   errorList = []
-  reqArray.forEach(function(key, index){
+  req.forEach(function(key, index){
     switch (index){
     case 0: // primeira message tem que ser start
       if(key.message == 'Experiment started!'){

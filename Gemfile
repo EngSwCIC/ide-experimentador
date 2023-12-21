@@ -80,3 +80,5 @@ gem "simplecov_json_formatter", "~> 0.1.4", :group => :test, :require => false
 gem "rspec-rails", "~> 6.1", :groups => [:development, :test]
 
 gem "rubycritic", require: false
+
+gem "rdoc"
