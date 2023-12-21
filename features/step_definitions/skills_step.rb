@@ -79,7 +79,7 @@ Given ("that a robot is selected for skills data visualization,") do
     46.90, [WARN], robot3, NO-SKILL, authenticate_person, authenticate_nurse", trial_id: Trial.find_by(id: "1").id)
 end
 
-And ("this robot has no skills assigned") do
+And ("this robot has no skills assigned,") do
     # Yes!
 end
 
@@ -120,7 +120,7 @@ Then ("the robot must navigate towards the location.") do
     expect(parsed_response).to include([{"time" => 10.05,"message" => "Navigation to room"}])
 end
 
-Given ("that message is being sent") do
+Given ("that message is being sent,") do
     Experiment.create([ name: "teste", disabled: false ])
     Trial.create([name: "testeTrial", disabled: false, deleted: false, runs: 20, experiment_id: Experiment.find_by(id: "1").id])
     TrialExecution.create(status: "bom", log:"0.19, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.5779176354739738, 'battery_discharge_rate': 0.0006000000000000001, 'id': 2, 'local_plan': [['navigation', ['PC Room 3', [[-21.0, 18.0, -1.57], [-21.0, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 5', 'name': 'r2', 'position': [-21.0, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
@@ -164,7 +164,7 @@ Then ("the interface should indicate that the message was sent.") do
     expect(parsed_response).to include([{"time" => 74.05, "message" => "Message sent to nurse"}])
 end
 
-Given ("that robot approached nurse") do
+Given ("that robot approached nurse,") do
     Experiment.create([ name: "teste", disabled: false ])
     Trial.create([name: "testeTrial", disabled: false, deleted: false, runs: 20, experiment_id: Experiment.find_by(id: "1").id])
     TrialExecution.create(status: "bom", log:"0.19, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.5779176354739738, 'battery_discharge_rate': 0.0006000000000000001, 'id': 2, 'local_plan': [['navigation', ['PC Room 3', [[-21.0, 18.0, -1.57], [-21.0, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 5', 'name': 'r2', 'position': [-21.0, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
@@ -211,3 +211,4 @@ Then ("the message must being sent.") do
     parsed_response = JSON.parse(response.body)
     expect(parsed_response).to include([{"time" => 74.05,"message" => "Sending message to nurse"}])
 end
+

@@ -22,8 +22,6 @@ class GraphController < ApplicationController
         #   # => { "time" => 10.06, "message" => Navigation to room}
         def navigationLine(navigation, navigationList, json_data)      # referente à linha de navigation
             time = navigation[1].to_f
-            print time
-            puts " Navigation #{navigationList[0]}"
             json_data << { "time" => time, "message" => "Navigation #{navigationList[0]}"}
         end
         
@@ -41,22 +39,16 @@ class GraphController < ApplicationController
             time = linhaLista[0]
             case
             when linhaLista[5] == '(status=sending-request)'        # request de mensagem
-                print time
-                puts " Sending message to #{linhaLista[2]}"
                 json_data << { "time" => time, "message" => "Sending message to #{linhaLista[2]}"}
             
             when linhaLista[5] == '(status=waiting)'                # espera de mensagem
-                print time
-                puts " Waiting the message get to #{linhaLista[2]}"
                 json_data << { "time" => time, "message" => "Waiting the message get to #{linhaLista[2]}"}
 
             when linhaLista[5] == '(status=message-received)'       # mensagem recebida
-                print time
-                puts " Message sent to #{linhaLista[2]}"
                 json_data << { "time" => time, "message" => "Message sent to #{linhaLista[2]}"}
             
             else
-                puts '?' 
+                 
             end
         end
 
@@ -84,13 +76,9 @@ class GraphController < ApplicationController
             time = linhaLista[0]
             case linhaLista[3]
             when 'NO-SKILL'
-                print time
-                puts " Experiment failed with #{linhaLista[3]}: #{linhaLista[4]}."
                 json_data << { "time" => time, "message" => "Experiment failed with #{linhaLista[3]}: #{linhaLista[4]}."}
 
             when 'SKILL-FAILURE'
-                print time
-                puts " Skill #{linhaLista[4]} failed."
                 json_data << { "time" => time, "message" => "Skill #{linhaLista[4]} failed."}
                 
             when 'LOWBATT'
@@ -117,7 +105,6 @@ class GraphController < ApplicationController
                     robotsConfigJson = robotsConfigStr.sub("ROBOTS_CONFIG=", "")
                     robotsConfigHash = JSON.parse(robotsConfigJson)
                 rescue
-                    puts 'TIMEOUT'
                     json_data << { "message" => "TIMEOUT"}
                     break
                 end
@@ -182,17 +169,13 @@ class GraphController < ApplicationController
                     end
 
                     if timeout
-                        puts "TIMEOUT"
                         json_data << { "message" => "TIMEOUT"}
                     end
 
                 when start
                     started = true
-                    puts 'Experiment started!'
                     json_data << { "message" => "Experiment started!"}
                 
-                else                                        # se não for nada disso daí é ota coisa.
-                    puts '??'
                 end
             end
         end
