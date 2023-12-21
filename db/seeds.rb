@@ -58,4 +58,4 @@ def create_example_data()
 210.01, [INFO], robot4, {'battery-level': '12.06'}, None, None", trial_id: Trial.find_by(id: "1").id)
 end
 
-create_example_data()
+#create_example_data()
