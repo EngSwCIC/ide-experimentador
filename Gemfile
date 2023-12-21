@@ -44,6 +44,29 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+
+#DEVISE
+gem "devise"
+
+gem 'rspec-rails'
+
+gem 'rspec', '~> 3.0'
+
+gem 'factory_bot_rails'
+
+gem 'rdoc', '~> 6.6', '>= 6.6.2'
+
+gem 'rubycritic'
+
+gem 'metric_fu-Saikuro'
+
+gem 'simplecov', require: false, group: :test
+
+
+gem 'rails-controller-testing'
+
+gem 'faker'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
