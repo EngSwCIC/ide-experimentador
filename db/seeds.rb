@@ -47,6 +47,7 @@ trialExecution = TrialExecution.create(
     }
 )
 
+
 trial = TrialExecution.all
 
 puts trial.inspect

@@ -37,9 +37,11 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
-/logs
+
 /coverage
 
 /node_modules
+
+/logs
 
 /.idea
