@@ -1,24 +1,23 @@
+# language: pt
 Funcionalidade: Visualizar os dados de bateria do robô
 Eu como Engenheiro de Sistemas Robóticos
 Quero visualizar o status da bateria do robô em um dado momento
 A fim de monitorar e otimizar o consumo de energia durante o funcionamento contínuo do robô
 
-Contexto:
-  Dado que eu esteja na interface que disponibiliza os dados de bateria
-  E o sistema de teste de bateria está ativo
-
+@javascript
 Cenário: Consulta de dados de bateria após o término do teste (triste)
-  Dado que eu solicite o status da bateria em um determinado instante
-  E que esse instante não existe no teste
-  Então deverá ser exibida uma mensagem informando que foi possível concluir a visualização do teste de bateria, porque o instante solicitado está fora do intervalo do teste
+  Quando o usuario estiver na tela de visualizar nivel de bateria
+  Dado que o usuario clique no formulario de busca e escreva um valor fora do escopo de tempo, como "-1"
+  Então o usuario deveria ver uma mensagem dizendo "Não existem dados de bateria para esse momento"
 
-Cenário: Status de bateria retorna dados incorretos (triste)
-  Dado que eu solicite o status da bateria em um determinado instante
-  E que o nível de bateria recebido pela aplicação não é um valor percentual decimal entre 0% e 100%
-  Então deverá ser exibida uma mensagem informando que não foi possível concluir a visualização do teste de bateria, porque o formato dos dados é inválido
+@javascript
+Cenário: Busca feita com dados incorretos (triste)
+  Quando o usuario estiver na tela de visualizar nivel de bateria
+  Dado que o usuario clique no formulario de busca e escreva um valor usando caracteres não numéricos, como "teste"
+  Então o usuario deveria ver uma mensagem dizendo "Não existem dados de bateria para esse momento"
 
-Cenário: A pesquisa de status da bateria retorna porcentagem (feliz)
-  Dado que eu solicite o status da bateria em um determinado instante
-  E que esse instante existe no teste
-  E que o nível de bateria recebido pela aplicação é um valor percentual decimal entre 0% e 100%
+@javascript
+Cenário: A pesquisa de status é concluida com sucesso (feliz)
+  Quando o usuario estiver na tela de visualizar nivel de bateria
+  Dado que eu solicite o status da bateria usando dados validos
   Então eu deveria ver a porcentagem da bateria correspondente desse instante
