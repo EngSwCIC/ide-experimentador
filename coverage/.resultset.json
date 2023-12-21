@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/environment.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -10,7 +10,7 @@
           1
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/application.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/application.rb": {
         "lines": [
           1,
           null,
@@ -41,7 +41,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/boot.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -49,7 +49,7 @@
           1
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/environments/test.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -121,7 +121,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/initializers/assets.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -137,7 +137,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/initializers/content_security_policy.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -148,38 +148,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/initializers/inflections.rb": {
-        "lines": [
           null,
           null,
           null,
@@ -198,7 +166,39 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/initializers/permissions_policy.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -215,7 +215,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/config/routes.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -225,81 +225,43 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/helpers/application_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/helpers/classifications_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/classifications_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/helpers/experiments_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/experiments_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/helpers/hello_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/hello_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/helpers/tags_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/tags_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/helpers/trials_helper.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/helpers/trials_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/helpers/experiments_helper_spec.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/helpers/tags_helper_spec.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/helpers/trials_helper_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/helpers/experiments_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -318,7 +280,45 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/requests/classifications_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/helpers/tags_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/helpers/trials_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/classifications_spec.rb": {
         "lines": [
           1,
           null,
@@ -333,7 +333,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/requests/experiments_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/experiments_spec.rb": {
         "lines": [
           1,
           null,
@@ -344,7 +344,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/requests/filter_experiments_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/filter_experiments_spec.rb": {
         "lines": [
           1,
           null,
@@ -372,7 +372,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/controllers/experiments_controller.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/experiments_controller.rb": {
         "lines": [
           1,
           1,
@@ -381,39 +381,24 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/controllers/application_controller.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/requests/home_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/requests/tags_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/home_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
           1,
-          1,
-          1,
-          null,
-          null,
           null,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/requests/trials_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/tags_spec.rb": {
         "lines": [
           1,
           null,
@@ -428,7 +413,22 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/views/classifications/index.html.erb_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/requests/trials_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/views/classifications/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -437,7 +437,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/views/tags/index.html.erb_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/views/tags/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -446,7 +446,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/spec/views/trials/index.html.erb_spec.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/spec/views/trials/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -455,7 +455,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/controllers/classifications_controller.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/classifications_controller.rb": {
         "lines": [
           1,
           1,
@@ -464,7 +464,7 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/models/classification.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/classification.rb": {
         "lines": [
           1,
           1,
@@ -472,37 +472,21 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/models/application_record.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/models/experiment.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/experiment.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/controllers/tags_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/models/tag.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/controllers/trials_controller.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/tags_controller.rb": {
         "lines": [
           1,
           1,
@@ -511,7 +495,23 @@
           null
         ]
       },
-      "/home/jeanb/Downloads/Projetos/ide-experimentador-grupo8-1/app/models/trial.rb": {
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/tag.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/controllers/trials_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/alexandre/Sprint3/ide-experimentador-grupo8/app/models/trial.rb": {
         "lines": [
           1,
           1,
@@ -522,6 +522,6 @@
         ]
       }
     },
-    "timestamp": 1703078739
+    "timestamp": 1703081554
   }
 }
