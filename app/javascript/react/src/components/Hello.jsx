@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
                                                         
 const Hello = (props) => {                                   
-  
-  let [count, setCount] = useState(2)
+
+  let [count, setCount] = useState(1)
   let [req, setReq] = useState("") 
 
   useEffect(() => {
